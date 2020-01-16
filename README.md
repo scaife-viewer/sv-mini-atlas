@@ -63,7 +63,6 @@ Retrieve the first version.
     }
   }
 }
-
 ```
 
 Retrieve books within a particular version.
@@ -128,7 +127,6 @@ Retrieve lines within a book within a particular version.
 
 Page through text parts ten at a time.
 ```
-
 {
   textParts(urn_Startswith: "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:", rank: 2, first: 10) {
     edges {
@@ -145,8 +143,6 @@ Page through text parts ten at a time.
     }
   }
 }
-```
-
 ```
 
 And then the next ten lines after that (use the `endCursor` value for `after`).
