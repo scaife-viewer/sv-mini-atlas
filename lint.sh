@@ -1,4 +1,4 @@
 #!/bin/bash
-isort -rc readhomer_atlas
-black readhomer_atlas
-flake8 readhomer_atlas
+isort -rc sv_mini_atlas
+black sv_mini_atlas
+flake8 sv_mini_atlas

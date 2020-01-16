@@ -35,9 +35,9 @@ jobs:
           name: lint code
           command: |
             . venv/bin/activate
-            isort -rc readhomer_atlas
-            black readhomer_atlas --check --diff
-            flake8 readhomer_atlas
+            isort -rc sv_mini_atlas
+            black sv_mini_atlas --check --diff
+            flake8 sv_mini_atlas
 
       # tests
       - run:

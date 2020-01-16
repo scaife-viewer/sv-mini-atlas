@@ -93,7 +93,7 @@ LIBRARY_DATA = {
     },
     "versions": {
         "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:": {
-            "path": "/Users/jwegner/Data/development/repos/scaife-viewer/explorehomer-atlas/data/library/tlg0012/tlg001/tlg0012.tlg001.perseus-grc2.txt",
+            "path": "/Users/jwegner/Data/development/repos/scaife-viewer/sv-mini-atlas/data/library/tlg0012/tlg001/tlg0012.tlg001.perseus-grc2.txt",
             "urn": "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:",
             "node_kind": "version",
             "version_kind": "edition",
@@ -108,7 +108,7 @@ LIBRARY_DATA = {
             ],
         },
         "urn:cts:greekLit:tlg0012.tlg002.perseus-grc2:": {
-            "path": "/Users/jwegner/Data/development/repos/scaife-viewer/explorehomer-atlas/data/library/tlg0012/tlg002/tlg0012.tlg002.perseus-grc2.txt",
+            "path": "/Users/jwegner/Data/development/repos/scaife-viewer/sv-mini-atlas/data/library/tlg0012/tlg002/tlg0012.tlg002.perseus-grc2.txt",
             "urn": "urn:cts:greekLit:tlg0012.tlg002.perseus-grc2:",
             "node_kind": "version",
             "version_kind": "edition",

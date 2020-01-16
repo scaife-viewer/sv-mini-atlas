@@ -1,5 +1,5 @@
 """
-WSGI config for readhomer_atlas project.
+WSGI config for sv_mini_atlas project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -12,6 +12,6 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "readhomer_atlas.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sv_mini_atlas.settings")
 
 application = get_wsgi_application()

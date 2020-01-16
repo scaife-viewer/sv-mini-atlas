@@ -3,7 +3,7 @@ import os
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
-from readhomer_atlas.library import importers
+from sv_mini_atlas.library import importers
 
 
 class Command(BaseCommand):

@@ -90,7 +90,7 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.template.context_processors.request",
                 "django.contrib.messages.context_processors.messages",
-                "readhomer_atlas.context_processors.settings",
+                "sv_mini_atlas.context_processors.settings",
             ],
         },
     }
@@ -109,10 +109,10 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "readhomer_atlas.urls"
+ROOT_URLCONF = "sv_mini_atlas.urls"
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = "readhomer_atlas.wsgi.application"
+WSGI_APPLICATION = "sv_mini_atlas.wsgi.application"
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -130,8 +130,8 @@ INSTALLED_APPS = [
     "graphene_django",
     "treebeard",
     # project
-    "readhomer_atlas",
-    "readhomer_atlas.library",
+    "sv_mini_atlas",
+    "sv_mini_atlas.library",
 ]
 
 ADMIN_URL = "admin:index"
@@ -169,7 +169,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 CORS_ORIGIN_ALLOW_ALL = True
 
 GRAPHENE = {
-    "SCHEMA": "readhomer_atlas.schema.schema",
+    "SCHEMA": "sv_mini_atlas.schema.schema",
     # setting RELAY_CONNECTION_MAX_LIMIT to None removes the limit; for backwards compatability with current API
     # @@@ restore the limit
     "RELAY_CONNECTION_MAX_LIMIT": None,

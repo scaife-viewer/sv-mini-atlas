@@ -1,9 +1,9 @@
 import graphene
 
-import readhomer_atlas.library.schema
+import sv_mini_atlas.library.schema
 
 
-class Query(readhomer_atlas.library.schema.Query, graphene.ObjectType):
+class Query(sv_mini_atlas.library.schema.Query, graphene.ObjectType):
     # This class will inherit from multiple Queries
     # as we begin to add more apps to our project
     pass

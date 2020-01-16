@@ -5,7 +5,7 @@ import sys
 
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "readhomer_atlas.settings")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sv_mini_atlas.settings")
 
     from django.core.management import execute_from_command_line
 

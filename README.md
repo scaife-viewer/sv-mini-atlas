@@ -1,4 +1,4 @@
-# readhomer_atlas
+# sv_mini_atlas
 
 ## Getting Started
 

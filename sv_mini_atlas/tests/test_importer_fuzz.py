@@ -2,10 +2,10 @@ import copy
 
 import hypothesis
 
-from readhomer_atlas.library.importers import CTSImporter, Library
-from readhomer_atlas.library.urn import URN
-from readhomer_atlas.tests import constants
-from readhomer_atlas.tests.strategies import URNs
+from sv_mini_atlas.library.importers import CTSImporter, Library
+from sv_mini_atlas.library.urn import URN
+from sv_mini_atlas.tests import constants
+from sv_mini_atlas.tests.strategies import URNs
 
 
 library = Library(**constants.LIBRARY_DATA)

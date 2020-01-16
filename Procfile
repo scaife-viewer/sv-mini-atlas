@@ -1,1 +1,1 @@
-web: gunicorn readhomer_atlas.wsgi
+web: gunicorn sv_mini_atlas.wsgi

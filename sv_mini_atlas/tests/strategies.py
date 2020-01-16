@@ -1,6 +1,6 @@
 from hypothesis import strategies
 
-from readhomer_atlas import constants
+from sv_mini_atlas import constants
 
 
 class URNs:

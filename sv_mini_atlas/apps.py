@@ -3,4 +3,4 @@ from django.apps import AppConfig as BaseAppConfig
 
 class AppConfig(BaseAppConfig):
 
-    name = "readhomer_atlas"
+    name = "sv_mini_atlas"

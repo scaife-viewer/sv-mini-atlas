@@ -1,8 +1,8 @@
 import copy
 from unittest import mock
 
-from readhomer_atlas.library.importers import CTSImporter, Library
-from readhomer_atlas.tests import constants
+from sv_mini_atlas.library.importers import CTSImporter, Library
+from sv_mini_atlas.tests import constants
 
 
 library = Library(**constants.LIBRARY_DATA)
@@ -91,11 +91,11 @@ def test_destructure_alphanumeric():
 
 
 @mock.patch(
-    "readhomer_atlas.library.importers.open",
+    "sv_mini_atlas.library.importers.open",
     new_callable=mock.mock_open,
     read_data=constants.PASSAGE,
 )
-@mock.patch("readhomer_atlas.library.importers.Node")
+@mock.patch("sv_mini_atlas.library.importers.Node")
 def test_importer(mock_node, mock_open):
     CTSImporter(library, constants.VERSION_DATA, {}).apply()
 
@@ -239,11 +239,11 @@ def test_importer(mock_node, mock_open):
 
 
 @mock.patch(
-    "readhomer_atlas.library.importers.open",
+    "sv_mini_atlas.library.importers.open",
     new_callable=mock.mock_open,
     read_data=constants.PASSAGE,
 )
-@mock.patch("readhomer_atlas.library.importers.Node")
+@mock.patch("sv_mini_atlas.library.importers.Node")
 def test_importer_exemplar(mock_node, mock_open):
     version_urn = "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:"
     exemplar_urn = "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2.card:"
