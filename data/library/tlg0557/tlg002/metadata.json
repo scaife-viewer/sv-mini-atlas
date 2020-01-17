@@ -1,0 +1,33 @@
+{
+  "urn": "urn:cts:greekLit:tlg0557.tlg002:",
+  "group_urn": "urn:cts:greekLit:tlg0557:",
+  "node_kind": "work",
+  "lang": "grc",
+  "title": [
+    {
+      "lang": "eng",
+      "value": "Enchiridion"
+    }
+  ],
+  "versions": [
+    {
+      "urn": "urn:cts:greekLit:tlg0557.tlg002.perseus-grc1:",
+      "node_kind": "version",
+      "version_kind": "edition",
+      "first_passage_urn": "urn:cts:greekLit:tlg0557.tlg002.perseus-grc1:1",
+      "citation_scheme": ["book", "line"],
+      "label": [
+        {
+          "lang": "eng",
+          "value": "Enchiridion"
+        }
+      ],
+      "description": [
+        {
+          "lang": "eng",
+          "value": "Epicteti Dissertationes ab Arriano digestae. Epictetus. Heinrich Schenkl. editor. Leipzig. B. G. Teubner. 1916."
+        }
+      ]
+    }
+  ]
+}

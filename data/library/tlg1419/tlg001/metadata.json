@@ -1,0 +1,33 @@
+{
+  "urn": "urn:cts:greekLit:tlg1419.tlg001:",
+  "group_urn": "urn:cts:greekLit:tlg1419:",
+  "node_kind": "work",
+  "lang": "grc",
+  "title": [
+    {
+      "lang": "eng",
+      "value": "The Shepherd of Hermas"
+    }
+  ],
+  "versions": [
+    {
+      "urn": "urn:cts:greekLit:tlg1419.tlg001.1st1K-grc1:",
+      "node_kind": "version",
+      "version_kind": "edition",
+      "first_passage_urn": "urn:cts:greekLit:tlg1419.tlg001.1st1K-grc1:1",
+      "citation_scheme": ["section", "chapter", "verse"],
+      "label": [
+        {
+          "lang": "eng",
+          "value": "Hermas, 2nd cent."
+        }
+      ],
+      "description": [
+        {
+          "lang": "eng",
+          "value": "Hermas, 2nd cent., The Shepherd of Hermas, The Apostolic Fathers, Vol 2, Kirsopp Lake, 1917"
+        }
+      ]
+    }
+  ]
+}

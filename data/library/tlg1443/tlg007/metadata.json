@@ -1,0 +1,33 @@
+{
+  "urn": "urn:cts:greekLit:tlg1443.tlg007:",
+  "group_urn": "urn:cts:greekLit:tlg1443:",
+  "node_kind": "work",
+  "lang": "grc",
+  "title": [
+    {
+      "lang": "eng",
+      "value": "Ad Romanos (epist. 4)"
+    }
+  ],
+  "versions": [
+    {
+      "urn": "urn:cts:greekLit:tlg1443.tlg007.1st1K-grc1:",
+      "node_kind": "version",
+      "version_kind": "edition",
+      "first_passage_urn": "urn:cts:greekLit:tlg1443.tlg007.1st1K-grc1:0-1",
+      "citation_scheme": ["chapter", "verse"],
+      "label": [
+        {
+          "lang": "grc",
+          "value": "ΡΩΜΑΙΟΙΣ ΙΓΝΑΤΙΟΣ"
+        }
+      ],
+      "description": [
+        {
+          "lang": "eng",
+          "value": "Ignatius Antiochenus, Ad Romanos (epist. 4), Lake, Loeb, 1912"
+        }
+      ]
+    }
+  ]
+}
