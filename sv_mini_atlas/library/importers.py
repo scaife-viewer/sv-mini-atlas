@@ -1,6 +1,5 @@
 import json
 import os
-import re
 import sys
 from collections import defaultdict
 
@@ -78,8 +77,8 @@ class CTSImporter:
         self.library = library
         self.version_data = version_data
         self.nodes = nodes
-        self.urn = self.version_data["urn"].strip()
-        self.work_urn = URN(self.urn).up_to(URN.WORK)
+        self.urn = URN(self.version_data["urn"].strip())
+        self.work_urn = self.urn.up_to(self.urn.WORK)
         self.name = get_first_value_for_language(
             self.library.works[self.work_urn]["title"], "eng"
         )
@@ -92,27 +91,17 @@ class CTSImporter:
         self.idx_lookup[kind] += 1
         return idx
 
-    # @@@ refactor with URN class
-    def urn_has_exemplar(self, node_urn):
-        return len(node_urn.rsplit(":")[-2].split(".")) == 4
-
-    # @@@ refactor with URN class
     def get_urn_scheme(self, node_urn):
-        if self.urn_has_exemplar(node_urn):
+        if node_urn.has_exemplar:
             return [*self.CTS_URN_SCHEME_EXEMPLAR, *self.citation_scheme]
         return [*self.CTS_URN_SCHEME, *self.citation_scheme]
 
     def destructure_node(self, node_urn, tokens):
-        # @@@ refactor with URN class
-        split = ["urn:cts", ":", *re.split(r"([:|.])", node_urn)[4:]]
-        nodes = [node for idx, node in enumerate(split) if idx % 2 == 0]
-        delimiters = [delimiter for idx, delimiter in enumerate(split) if idx % 2 == 1]
-        zipped = zip(self.get_urn_scheme(node_urn), nodes)
-
+        zipped = zip(self.get_urn_scheme(node_urn), node_urn.nodes)
         node_data = []
         for idx, (kind, node) in enumerate(zipped):
-            parts = nodes[: idx + 1]
-            joins = [*delimiters[:idx], ""]
+            parts = node_urn.nodes[: idx + 1]
+            joins = [*node_urn.delimiters[:idx], ""]
             urn = "".join(item for pair in zip(parts, joins) for item in pair)
             if kind in self.CTS_URN_SCHEME_EXEMPLAR:
                 urn = f"{urn}:"
@@ -123,7 +112,7 @@ class CTSImporter:
 
             if kind in self.citation_scheme:
                 ref_index = self.citation_scheme.index(kind)
-                ref = ".".join(nodes[-len(self.citation_scheme) :][: ref_index + 1])
+                ref = ".".join(node_urn.nodes[-len(self.citation_scheme) :][: ref_index + 1])
                 data.update({"ref": ref, "rank": ref_index + 1})
                 if kind == self.citation_scheme[-1]:
                     data.update({"text_content": tokens})
@@ -134,7 +123,9 @@ class CTSImporter:
 
     def generate_branch(self, line):
         ref, tokens = line.strip().split(maxsplit=1)
-        node_data = self.destructure_node(f"{self.urn}{ref}", tokens)
+        _, passage = ref.split(".", maxsplit=1)
+        node_urn = URN(f"{self.urn}{passage}")
+        node_data = self.destructure_node(node_urn, tokens)
         for idx, data in enumerate(node_data):
             node = self.nodes.get(data["urn"])
             if node is None:
@@ -147,7 +138,7 @@ class CTSImporter:
                 self.nodes[data["urn"]] = node
 
     def apply(self):
-        full_content_path = self.library.versions[self.urn]["path"]
+        full_content_path = self.library.versions[self.urn.absolute]["path"]
         with open(full_content_path, "r") as f:
             for line in f:
                 self.generate_branch(line)

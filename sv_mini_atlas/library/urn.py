@@ -1,3 +1,6 @@
+import re
+
+
 class URN:
     """
     Provides a subset of functionality from `MyCapytain.common.reference.URN`
@@ -22,6 +25,11 @@ class URN:
     def __init__(self, urn):
         self.urn = urn
         self.parsed = self.parse_urn(urn)
+        self.exploded = self.explode_urn(urn)
+        self.nodes, self.delimiters = self.exploded[::2], self.exploded[1::2]
+
+    def explode_urn(self, urn):
+        return ["urn:cts", ":", *re.split(r"([:|.])", urn)[4:]]
 
     def parse_urn(self, urn):
         parsed = {}
@@ -52,6 +60,18 @@ class URN:
             key = self.WORK_COMPONENT_LABELS[constant]
             parsed[key] = value
         return parsed
+
+    @property
+    def absolute(self):
+        return self.urn
+
+    @property
+    def has_exemplar(self):
+        return self.parsed["exemplar"] is not None
+
+    @property
+    def passage(self):
+        return self.parsed["ref"]
 
     @property
     def to_namespace(self):
