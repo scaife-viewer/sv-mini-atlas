@@ -1,3 +1,5 @@
+import copy
+
 import hypothesis
 
 from sv_mini_atlas.library.importers import CTSImporter, Library
@@ -49,7 +51,7 @@ def _get_library(urn):
             }
         },
     }
-    return Library(**library_data)
+    return Library(**copy.deepcopy(library_data))
 
 
 @hypothesis.given(URNs.cts_urns().map(URN))
@@ -63,18 +65,24 @@ def test_destructure(urn):
     nodes = CTSImporter(library, version_data).destructure_node(urn, tokens)
 
     if urn.has_exemplar:
-        assert len(nodes) - len(scheme) == 6
+        assert len(nodes) - len(urn.passage_nodes) == 6
     else:
-        assert len(nodes) - len(scheme) == 5
+        assert len(nodes) - len(urn.passage_nodes) == 5
 
-    passage_nodes = nodes[-len(scheme) :]
-    for idx, node in enumerate(passage_nodes):
-        # assert node["urn"] == ""
-        assert node["rank"] == idx + 1
-        assert node["kind"] == scheme[idx]
-        if idx > 0:
-            assert node["ref"].startswith(f"{passage_nodes[idx - 1]['ref']}.")
-        if idx == passage_nodes.index(passage_nodes[-1]):
-            assert node["text_content"] == tokens
+    for idx, node in enumerate(nodes):
+        if "rank" not in node:
+            assert node["urn"] == urn.up_to(getattr(urn, node["kind"].upper()))
+            if node["kind"] == "version":
+                assert node["metadata"]["citation_scheme"] == scheme
         else:
+            ref = node["ref"]
+            assert node["urn"] == f"{urn.up_to(urn.NO_PASSAGE)}{ref}"
+            assert node["rank"] == len(ref.split("."))
+            assert node["kind"] == scheme[node["rank"] - 1]
+            if node["rank"] > 1:
+                assert ref.startswith(f"{nodes[idx - 1]['ref']}.")
+
+        if idx != nodes.index(nodes[-1]):
             assert "text_content" not in node
+        else:
+            assert node["text_content"] == tokens

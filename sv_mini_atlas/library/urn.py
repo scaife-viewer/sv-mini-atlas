@@ -1,17 +1,15 @@
-import re
-
-
 class URN:
     """
-    Provides a subset of functionality from `MyCapytain.common.reference.URN`
+    Provides a subset of functionality from `MyCapytain.common.reference.URN`.
     """
 
-    NAMESPACE = 0
-    TEXTGROUP = 1
-    WORK = 2
-    VERSION = 3
-    EXEMPLAR = 4
-    NO_PASSAGE = 5
+    NID = 0
+    NAMESPACE = 1
+    TEXTGROUP = 2
+    WORK = 3
+    VERSION = 4
+    EXEMPLAR = 5
+    NO_PASSAGE = 6
     WORK_COMPONENT_LABELS = {
         TEXTGROUP: "textgroup",
         WORK: "work",
@@ -25,11 +23,6 @@ class URN:
     def __init__(self, urn):
         self.urn = urn
         self.parsed = self.parse_urn(urn)
-        self.exploded = self.explode_urn(urn)
-        self.nodes, self.delimiters = self.exploded[::2], self.exploded[1::2]
-
-    def explode_urn(self, urn):
-        return ["urn:cts", ":", *re.split(r"([:|.])", urn)[4:]]
 
     def parse_urn(self, urn):
         parsed = {}
@@ -46,7 +39,7 @@ class URN:
                 passage_component,
             ) = components[:5]
         except ValueError:
-            raise ValueError("Invalid URN")
+            raise ValueError(f"Invalid URN: {urn}")
         work_components = work_component.split(".")
         parsed.update(
             {
@@ -56,7 +49,7 @@ class URN:
                 "ref": passage_component,
             }
         )
-        for constant, value in enumerate(work_components, 1):
+        for constant, value in enumerate(work_components, 2):
             key = self.WORK_COMPONENT_LABELS[constant]
             parsed[key] = value
         return parsed
@@ -74,10 +67,16 @@ class URN:
         return self.parsed["ref"]
 
     @property
+    def passage_nodes(self):
+        return self.passage.split(".")
+
+    @property
+    def to_nid(self):
+        return ":".join([self.parsed["nid"], self.parsed["protocol"]])
+
+    @property
     def to_namespace(self):
-        return ":".join(
-            [self.parsed["nid"], self.parsed["protocol"], self.parsed["namespace"]]
-        )
+        return ":".join([self.to_nid, self.parsed["namespace"]])
 
     @property
     def to_textgroup(self):
@@ -104,19 +103,25 @@ class URN:
     def up_to(self, key):
         if key == self.NO_PASSAGE:
             label = "no_passage"
+        elif key == self.NID:
+            label = "nid"
+        elif key == self.NAMESPACE:
+            label = "namespace"
         else:
             label = self.WORK_COMPONENT_LABELS.get(key, None)
         if label is None:
-            raise KeyError("Provided key is not recognized.")
+            raise KeyError(f"Provided key is not recognized: {key}")
 
         attr_name = f"to_{label}"
         try:
             value = getattr(self, attr_name)
         except TypeError:
-            raise ValueError(f'URN has no "{label}" component')
+            raise ValueError(f"URN has no component: {label}")
 
-        if key == self.NO_PASSAGE and self.parsed["work"]:
-            return value
+        # TODO: Is there any time we don't want a trailing ":" for any URN
+        # without a passage component?
+        # if key == self.NO_PASSAGE and self.parsed["work"]:
+        #     return value
 
         # from https://cite-architecture.github.io/ctsurn_spec/specification.html#overall-structure-of-a-cts-urn
         # The value of the passage component may be a null string;

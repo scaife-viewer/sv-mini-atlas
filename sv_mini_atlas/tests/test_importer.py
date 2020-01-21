@@ -252,7 +252,6 @@ def test_importer_exemplar(mock_node, mock_open):
     exemplar_data = library_.versions.pop(version_urn)
     exemplar_data.update({"urn": exemplar_urn})
     library_.versions[exemplar_urn] = exemplar_data
-    print(library_.versions.keys())
     CTSImporter(library_, exemplar_data, {}).apply()
 
     assert mock_node.mock_calls == [
