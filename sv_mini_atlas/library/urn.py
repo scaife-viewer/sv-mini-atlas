@@ -118,13 +118,4 @@ class URN:
         except TypeError:
             raise ValueError(f"URN has no component: {label}")
 
-        # TODO: Is there any time we don't want a trailing ":" for any URN
-        # without a passage component?
-        # if key == self.NO_PASSAGE and self.parsed["work"]:
-        #     return value
-
-        # from https://cite-architecture.github.io/ctsurn_spec/specification.html#overall-structure-of-a-cts-urn
-        # The value of the passage component may be a null string;
-        # in this case, the work component must still be separated
-        # from the null string by a colon.
         return f"{value}:"
