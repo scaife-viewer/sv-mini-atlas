@@ -134,8 +134,7 @@ class CTSImporter:
 
     def generate_branch(self, line):
         ref, tokens = line.strip().split(maxsplit=1)
-        _, passage = ref.split(".", maxsplit=1)
-        node_data = self.destructure_node(f"{self.urn}{passage}", tokens)
+        node_data = self.destructure_node(f"{self.urn}{ref}", tokens)
         for idx, data in enumerate(node_data):
             node = self.nodes.get(data["urn"])
             if node is None:

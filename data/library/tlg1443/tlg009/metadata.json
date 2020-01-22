@@ -1,0 +1,33 @@
+{
+  "urn": "urn:cts:greekLit:tlg1443.tlg009:",
+  "group_urn": "urn:cts:greekLit:tlg1443:",
+  "node_kind": "work",
+  "lang": "grc",
+  "title": [
+    {
+      "lang": "eng",
+      "value": "Ad Smyrnaeos (epist. 6)"
+    }
+  ],
+  "versions": [
+    {
+      "urn": "urn:cts:greekLit:tlg1443.tlg009.1st1K-grc1:",
+      "node_kind": "version",
+      "version_kind": "edition",
+      "first_passage_urn": "urn:cts:greekLit:tlg1443.tlg009.1st1K-grc1:0-1",
+      "citation_scheme": ["chapter", "verse"],
+      "label": [
+        {
+          "lang": "grc",
+          "value": "ΣΜΥΡΝΑΙΟΙΣ ΙΓΝΑΤΙΟΣ"
+        }
+      ],
+      "description": [
+        {
+          "lang": "eng",
+          "value": "Ignatius Antiochenus, Ad Smyrnaeos (epist. 6), Lake, Loeb, 1912"
+        }
+      ]
+    }
+  ]
+}

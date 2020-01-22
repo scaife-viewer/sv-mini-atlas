@@ -1,0 +1,33 @@
+{
+  "urn": "urn:cts:greekLit:tlg1271.tlg001:",
+  "group_urn": "urn:cts:greekLit:tlg1271:",
+  "node_kind": "work",
+  "lang": "grc",
+  "title": [
+    {
+      "lang": "eng",
+      "value": "Epistula I ad Corinthios"
+    }
+  ],
+  "versions": [
+    {
+      "urn": "urn:cts:greekLit:tlg1271.tlg001.1st1K-grc1:",
+      "node_kind": "version",
+      "version_kind": "edition",
+      "first_passage_urn": "urn:cts:greekLit:tlg1271.tlg001.1st1K-grc1:0-1",
+      "citation_scheme": ["chapter", "verse"],
+      "label": [
+        {
+          "lang": "eng",
+          "value": "Epistula I ad Corinthios"
+        }
+      ],
+      "description": [
+        {
+          "lang": "eng",
+          "value": "Clemens Romanus, Epistula I ad Corinthios, The Apostolic Fathers Vol 1, Lake 1912"
+        }
+      ]
+    }
+  ]
+}

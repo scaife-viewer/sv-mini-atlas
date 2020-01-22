@@ -1,0 +1,33 @@
+{
+  "urn": "urn:cts:greekLit:tlg0646.tlg004:",
+  "group_urn": "urn:cts:greekLit:tlg0646:",
+  "node_kind": "work",
+  "lang": "grc",
+  "title": [
+    {
+      "lang": "eng",
+      "value": "Epistula ad Diognetum"
+    }
+  ],
+  "versions": [
+    {
+      "urn": "urn:cts:greekLit:tlg0646.tlg004.1st1K-grc1:",
+      "node_kind": "version",
+      "version_kind": "edition",
+      "first_passage_urn": "urn:cts:greekLit:tlg0646.tlg004.1st1K-grc1:1",
+      "citation_scheme": ["chapter", "verse"],
+      "label": [
+        {
+          "lang": "eng",
+          "value": "Epistula ad Diognetum"
+        }
+      ],
+      "description": [
+        {
+          "lang": "eng",
+          "value": "Pseudo-Justinus Martyr, Epistula ad Diognetum"
+        }
+      ]
+    }
+  ]
+}
