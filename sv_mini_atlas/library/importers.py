@@ -5,6 +5,8 @@ from collections import defaultdict
 
 from django.conf import settings
 
+from sv_mini_atlas import constants
+
 from .models import Node
 from .urn import URN
 
@@ -59,8 +61,8 @@ class CTSImporter:
     https://cite-architecture.github.io/ctsurn_spec
     """
 
-    CTS_URN_SCHEME = ["nid", "namespace", "textgroup", "work", "version"]
-    CTS_URN_SCHEME_EXEMPLAR = CTS_URN_SCHEME + ["exemplar"]
+    CTS_URN_SCHEME = constants.CTS_URN_NODES[:-1]
+    CTS_URN_SCHEME_EXEMPLAR = constants.CTS_URN_NODES
 
     def get_version_metadata(self):
         return {

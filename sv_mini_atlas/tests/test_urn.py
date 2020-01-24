@@ -1,3 +1,5 @@
+from unittest import mock
+
 import pytest
 
 from sv_mini_atlas.library.urn import URN
@@ -12,7 +14,7 @@ def test_urn_invalid():
     urn = "not:a.urn:"
     with pytest.raises(ValueError) as excinfo:
         URN(urn)
-        assert str(excinfo.value) == f"Invalid URN: {urn}"
+    assert str(excinfo.value) == f"Invalid URN: {urn}"
 
 
 def test_urn_invalid_label():
@@ -20,7 +22,11 @@ def test_urn_invalid_label():
     key = 12345
     with pytest.raises(KeyError) as excinfo:
         URN(urn).up_to(key)
-        assert str(excinfo.value) == f"Provided key is not recognized: {key}"
+    # Strange bug with this test case:
+    # assert not excinfo.value.args[0] == str(excinfo.value)
+    # str(excinfo.value) -> "'Provided key is not recognized: 12346'"
+    # Value is wrapped in double quotes... ?! Use alternate method for now.
+    assert excinfo.value.args[0] == f"Provided key is not recognized: {key}"
 
 
 def test_urn_invalid_component():
@@ -28,4 +34,15 @@ def test_urn_invalid_component():
     key = 5
     with pytest.raises(ValueError) as excinfo:
         URN(urn).up_to(key)
-        assert str(excinfo.value) == "URN has no component: exemplar"
+    assert str(excinfo.value) == "URN has no component: exemplar"
+
+
+@mock.patch("sv_mini_atlas.library.models.Node.objects.get")
+@pytest.mark.django_db
+def test_urn_node_cached(mock_get):
+    urn = URN("urn:cts:0:0.0.0:")
+    assert mock_get.mock_calls == []
+    urn.node
+    assert mock_get.mock_calls == [mock.call(urn="urn:cts:0:0.0.0:")]
+    urn.node
+    assert len(mock_get.mock_calls) == 1

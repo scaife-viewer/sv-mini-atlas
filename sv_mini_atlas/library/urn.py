@@ -1,3 +1,8 @@
+from django.utils.functional import cached_property
+
+from .models import Node
+
+
 class URN:
     """
     Provides a subset of functionality from `MyCapytain.common.reference.URN`.
@@ -53,6 +58,10 @@ class URN:
             key = self.WORK_COMPONENT_LABELS[constant]
             parsed[key] = value
         return parsed
+
+    @cached_property
+    def node(self):
+        return Node.objects.get(urn=self.absolute)
 
     @property
     def absolute(self):
