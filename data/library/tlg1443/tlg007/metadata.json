@@ -6,7 +6,7 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Ad Romanos (epist. 4)"
+      "value": "Ignatius to the Romans"
     }
   ],
   "versions": [
@@ -18,14 +18,14 @@
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
-          "lang": "grc",
-          "value": "ΡΩΜΑΙΟΙΣ ΙΓΝΑΤΙΟΣ"
+          "lang": "end",
+          "value": "Ignatius to the Romans (Open Apstolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Ignatius Antiochenus, Ad Romanos (epist. 4), Lake, Loeb, 1912"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }

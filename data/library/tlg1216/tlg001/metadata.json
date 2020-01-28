@@ -6,7 +6,7 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Barnabae epistula"
+      "value": "The Epistle of Barnabas"
     }
   ],
   "versions": [
@@ -19,16 +19,15 @@
       "label": [
         {
           "lang": "eng",
-          "value": "Barnabae epistula"
+          "value": "The Epistle of Barnabas (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Barnabas, Barnabae epistula, Lake, Loeb, 1912"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }
   ]
 }
-

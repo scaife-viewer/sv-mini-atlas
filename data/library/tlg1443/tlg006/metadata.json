@@ -6,7 +6,7 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Ad Trallianos (epist. 3)"
+      "value": "Ignatius to the Trallians"
     }
   ],
   "versions": [
@@ -18,14 +18,14 @@
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
-          "lang": "grc",
-          "value": "ΤΡΑΛΛΙΑΝΟΙΣ ΙΓΝΑΤΙΟΣ"
+          "lang": "eng",
+          "value": "Ignatius to the Trallians (Open Apostolic Fathers)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Ignatius Antiochenus, Ad Trallianos (epist. 3), Lake, Loeb, 1912"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }

@@ -6,7 +6,7 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Ad Polycarpum (epist. 7)"
+      "value": "Ignatius to Polycarp"
     }
   ],
   "versions": [
@@ -18,14 +18,14 @@
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
-          "lang": "grc",
-          "value": "ΠΡΟΣ ΠΟΛΥΚΑΡΠΟΝ ΙΓΝΑΤΙΟΣ"
+          "lang": "eng",
+          "value": "Ignatius to Polycarp (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Ignatius Antiochenus, Ad Polycarpum (epist. 7), Lake, Loeb, 1912"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }
