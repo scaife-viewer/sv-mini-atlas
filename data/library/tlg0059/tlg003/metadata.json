@@ -11,10 +11,10 @@
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg0059.tlg003.jkt:",
+      "urn": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg0059.tlg003.jkt:001-009",
+      "first_passage_urn": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:001-009",
       "citation_scheme": ["speech", "sentence"],
       "label": [
         {

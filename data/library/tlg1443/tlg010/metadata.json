@@ -11,10 +11,10 @@
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg1443.tlg010.1st1K-grc1:",
+      "urn": "urn:cts:greekLit:tlg1443.tlg010.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg1443.tlg010.1st1K-grc1:0-1",
+      "first_passage_urn": "urn:cts:greekLit:tlg1443.tlg010.oaf-1:0-1",
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
