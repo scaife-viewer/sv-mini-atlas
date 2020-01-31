@@ -32,7 +32,7 @@ class LibraryDataResolver:
             self.versions[version["urn"]] = {"path": version_path, **version}
 
     def resolve_data_dir_path(self, data_dir_path):
-        for dirpath, dirnames, filenames in os.walk(data_dir_path):
+        for dirpath, dirnames, filenames in sorted(os.walk(data_dir_path)):
             if "metadata.json" not in filenames:
                 continue
 
