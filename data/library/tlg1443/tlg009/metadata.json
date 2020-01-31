@@ -6,26 +6,26 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Ad Smyrnaeos (epist. 6)"
+      "value": "Ignatius to the Smyrnaeans"
     }
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg1443.tlg009.1st1K-grc1:",
+      "urn": "urn:cts:greekLit:tlg1443.tlg009.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg1443.tlg009.1st1K-grc1:0-1",
+      "first_passage_urn": "urn:cts:greekLit:tlg1443.tlg009.oaf-1:0-1",
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
-          "lang": "grc",
-          "value": "ΣΜΥΡΝΑΙΟΙΣ ΙΓΝΑΤΙΟΣ"
+          "lang": "eng",
+          "value": "Ignatius to the Smyrnaeans (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Ignatius Antiochenus, Ad Smyrnaeos (epist. 6), Lake, Loeb, 1912"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }

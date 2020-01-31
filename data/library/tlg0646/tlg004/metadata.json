@@ -6,26 +6,26 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Epistula ad Diognetum"
+      "value": "The Epistle to Diognetus"
     }
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg0646.tlg004.1st1K-grc1:",
+      "urn": "urn:cts:greekLit:tlg0646.tlg004.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg0646.tlg004.1st1K-grc1:1",
+      "first_passage_urn": "urn:cts:greekLit:tlg0646.tlg004.oaf-1:1",
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
           "lang": "eng",
-          "value": "Epistula ad Diognetum"
+          "value": "The Epistle to Diognetus (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Pseudo-Justinus Martyr, Epistula ad Diognetum"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }

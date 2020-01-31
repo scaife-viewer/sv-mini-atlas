@@ -6,26 +6,26 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Martyrium Polycarpi"
+      "value": "The Martyrdom of Polycarp"
     }
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg1484.tlg001.1st1K-grc1:",
+      "urn": "urn:cts:greekLit:tlg1484.tlg001.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg1484.tlg001.1st1K-grc1:0-1",
+      "first_passage_urn": "urn:cts:greekLit:tlg1484.tlg001.oaf-1:0-1",
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
           "lang": "eng",
-          "value": "Martyrium Polycarpi"
+          "value": "The Martyrdom of Polycarp (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Martyrium Polycarpi, The Apostolic Fathers Vol 2, Loeb, Lake, 1917"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }

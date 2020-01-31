@@ -6,29 +6,28 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Barnabae epistula"
+      "value": "The Epistle of Barnabas"
     }
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg1216.tlg001.perseus-grc1:",
+      "urn": "urn:cts:greekLit:tlg1216.tlg001.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg1216.tlg001.perseus-grc1:1",
+      "first_passage_urn": "urn:cts:greekLit:tlg1216.tlg001.oaf-1:1",
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
           "lang": "eng",
-          "value": "Barnabae epistula"
+          "value": "The Epistle of Barnabas (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Barnabas, Barnabae epistula, Lake, Loeb, 1912"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }
   ]
 }
-

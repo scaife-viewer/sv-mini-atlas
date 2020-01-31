@@ -6,26 +6,26 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Didache XII Apostolorum"
+      "value": "The Didache"
     }
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg1311.tlg001.1st1K-grc1:",
+      "urn": "urn:cts:greekLit:tlg1311.tlg001.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg1311.tlg001.1st1K-grc1:0-1",
+      "first_passage_urn": "urn:cts:greekLit:tlg1311.tlg001.oaf-1:0-1",
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
           "lang": "eng",
-          "value": "Didache XII Apostolorum"
+          "value": "The Didache (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Anonymus, Didache XII Apostolorum, The Apostolic Fathers Vol 1, Lake, 1912"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }

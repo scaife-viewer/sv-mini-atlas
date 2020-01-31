@@ -6,26 +6,26 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Ad Philadelphios (epist. 5)"
+      "value": "Ignatius to the Philadelphians"
     }
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg1443.tlg008.1st1K-grc1:",
+      "urn": "urn:cts:greekLit:tlg1443.tlg008.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg1443.tlg008.1st1K-grc1:0-1",
+      "first_passage_urn": "urn:cts:greekLit:tlg1443.tlg008.oaf-1:0-1",
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
-          "lang": "grc",
-          "value": "ΦΙΛΑΔΕΛΦΕΥΣΙΝ ΙΓΝΑΤΙΟΣ"
+          "lang": "eng",
+          "value": "Ignatius to the Philadelphians (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Ignatius Antiochenus, Ad Philadelphios (epist. 5), Lake, Loeb, 1912"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }

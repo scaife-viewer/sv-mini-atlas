@@ -6,26 +6,26 @@
   "title": [
     {
       "lang": "eng",
-      "value": "Epistula I ad Corinthios"
+      "value": "The First Epistle of Clement"
     }
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg1271.tlg001.1st1K-grc1:",
+      "urn": "urn:cts:greekLit:tlg1271.tlg001.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg1271.tlg001.1st1K-grc1:0-1",
+      "first_passage_urn": "urn:cts:greekLit:tlg1271.tlg001.oaf-1:0-1",
       "citation_scheme": ["chapter", "verse"],
       "label": [
         {
           "lang": "eng",
-          "value": "Epistula I ad Corinthios"
+          "value": "The First Epistle of Clement (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Clemens Romanus, Epistula I ad Corinthios, The Apostolic Fathers Vol 1, Lake 1912"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }

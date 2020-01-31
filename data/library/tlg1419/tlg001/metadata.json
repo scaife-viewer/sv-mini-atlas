@@ -11,21 +11,21 @@
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg1419.tlg001.1st1K-grc1:",
+      "urn": "urn:cts:greekLit:tlg1419.tlg001.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg1419.tlg001.1st1K-grc1:1",
+      "first_passage_urn": "urn:cts:greekLit:tlg1419.tlg001.oaf-1:1",
       "citation_scheme": ["section", "chapter", "verse"],
       "label": [
         {
           "lang": "eng",
-          "value": "Hermas, 2nd cent."
+          "value": "The Shepherd of Hermas (Open Apostolic Fathers Edition)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Hermas, 2nd cent., The Shepherd of Hermas, The Apostolic Fathers, Vol 2, Kirsopp Lake, 1917"
+          "value": "Open Apostolic Fathers edited by James Tauber and Seumas Macdonald and based on the text of Lake"
         }
       ]
     }

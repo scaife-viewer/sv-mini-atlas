@@ -11,24 +11,23 @@
   ],
   "versions": [
     {
-      "urn": "urn:cts:greekLit:tlg0059.tlg003.jkt:",
+      "urn": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:",
       "node_kind": "version",
       "version_kind": "edition",
-      "first_passage_urn": "urn:cts:greekLit:tlg0059.tlg003.jkt:001-009",
+      "first_passage_urn": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:001-006",
       "citation_scheme": ["speech", "sentence"],
       "label": [
         {
           "lang": "eng",
-          "value": "Crito"
+          "value": "Crito (Burnet; by sentence)"
         }
       ],
       "description": [
         {
           "lang": "eng",
-          "value": "Plato, creator. Platonis Opera Tomvs I Tetralogia I-II, Burnet, John, 1863-1928, editor. Oxford University Press. 1900-06."
+          "value": "OUP 1900–1906 Edition of Burnet with sentence-level structuring by jtauber"
         }
       ]
     }
   ]
 }
-
