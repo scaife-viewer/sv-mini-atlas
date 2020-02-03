@@ -37,6 +37,14 @@ def test_urn_invalid_component():
     assert str(excinfo.value) == "URN has no component: exemplar"
 
 
+@pytest.mark.django_db
+def test_urn_node_exception():
+    urn = URN("urn:cts:0:0.0.0:1-2")
+    with pytest.raises(NotImplementedError) as excinfo:
+        urn.node
+    assert str(excinfo.value) == "A range URN implies multiple nodes."
+
+
 @mock.patch("sv_mini_atlas.library.models.Node.objects.get")
 @pytest.mark.django_db
 def test_urn_node_cached(mock_get):

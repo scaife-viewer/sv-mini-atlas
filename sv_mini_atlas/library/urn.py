@@ -61,11 +61,18 @@ class URN:
 
     @cached_property
     def node(self):
+        if self.is_range:
+            # TODO: Return entire range of Nodes?
+            raise NotImplementedError("A range URN implies multiple nodes.")
         return Node.objects.get(urn=self.absolute)
 
     @property
     def absolute(self):
         return self.urn
+
+    @property
+    def is_range(self):
+        return self.passage is not None and "-" in self.passage
 
     @property
     def has_exemplar(self):
