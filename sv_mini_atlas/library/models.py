@@ -57,8 +57,13 @@ class Node(MP_Node):
             del fields["path"]
             del fields["numchild"]
 
-            fields.update({"metadata": camelize(json.loads(fields["metadata"]))})
-            newobj = {"data": camelize(fields) if to_camel else fields}
+            metadata = json.loads(fields["metadata"])
+            if to_camel:
+                fields = camelize(fields)
+                metadata = camelize(metadata)
+            fields.update({"metadata": metadata})
+
+            newobj = {"data": fields}
 
             if (not root and depth == 1) or (root and len(path) == len(root.path)):
                 tree.append(newobj)
