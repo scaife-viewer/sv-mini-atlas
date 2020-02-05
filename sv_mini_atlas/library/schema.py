@@ -8,6 +8,7 @@ from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.utils import camelize
 
 from .models import Node as TextPart
+from .urn import URN
 from .utils import get_chunker
 
 
@@ -285,6 +286,13 @@ class VersionNode(AbstractTextPartNode):
     @classmethod
     def get_queryset(cls, queryset, info):
         return queryset.filter(kind="version").order_by("urn")
+
+    def resolve_metadata(obj, *args, **kwargs):
+        metadata = obj.metadata
+        metadata.update(
+            {"work_urn": URN(metadata["first_passage_urn"]).up_to(URN.WORK)}
+        )
+        return camelize(metadata)
 
 
 class TextPartNode(AbstractTextPartNode):
