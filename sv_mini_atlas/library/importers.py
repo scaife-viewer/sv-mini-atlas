@@ -5,6 +5,8 @@ from collections import defaultdict
 
 from django.conf import settings
 
+from sv_mini_atlas import constants
+
 from .models import Node
 from .urn import URN
 
@@ -30,7 +32,7 @@ class LibraryDataResolver:
             self.versions[version["urn"]] = {"path": version_path, **version}
 
     def resolve_data_dir_path(self, data_dir_path):
-        for dirpath, dirnames, filenames in os.walk(data_dir_path):
+        for dirpath, dirnames, filenames in sorted(os.walk(data_dir_path)):
             if "metadata.json" not in filenames:
                 continue
 
@@ -59,8 +61,8 @@ class CTSImporter:
     https://cite-architecture.github.io/ctsurn_spec
     """
 
-    CTS_URN_SCHEME = ["nid", "namespace", "textgroup", "work", "version"]
-    CTS_URN_SCHEME_EXEMPLAR = CTS_URN_SCHEME + ["exemplar"]
+    CTS_URN_SCHEME = constants.CTS_URN_NODES[:-1]
+    CTS_URN_SCHEME_EXEMPLAR = constants.CTS_URN_NODES
 
     def get_version_metadata(self):
         return {

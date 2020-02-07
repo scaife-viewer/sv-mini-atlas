@@ -165,6 +165,17 @@ And then the next ten lines after that (use the `endCursor` value for `after`).
 }
 ```
 
+Dump an entire `Node` tree rooted by URN and halting at `kind`. For example,
+here we serialize all CTS URNs from their `NID` root up to (and including) the
+level of `Version` nodes, maintaining the tree structure in the final payload.
+```
+{
+  tree(urn: "urn:cts:", upTo: "version") {
+    tree
+  }
+}
+```
+
 ## Tests
 
 Invoke tests via:

@@ -1,3 +1,40 @@
+TREE_DATA = [
+    {
+        "data": {"urn": "urn:1:", "kind": "node"},
+        "children": [
+            {
+                "data": {"urn": "urn:11:", "kind": "node"},
+                "children": [
+                    {
+                        "data": {"urn": "urn:111:", "kind": "node"},
+                        "children": [
+                            {"data": {"urn": "urn:1111:", "kind": "node", "rank": 1}}
+                        ],
+                    },
+                    {
+                        "data": {"urn": "urn:112:", "kind": "node"},
+                        "children": [
+                            {"data": {"urn": "urn:1121:", "kind": "node", "rank": 1}}
+                        ],
+                    },
+                ],
+            },
+            {
+                "data": {"urn": "urn:12:", "kind": "node"},
+                "children": [
+                    {
+                        "data": {"urn": "urn:121:", "kind": "node"},
+                        "children": [
+                            {"data": {"urn": "urn:1211:", "kind": "node", "rank": 1}}
+                        ],
+                    },
+                ],
+            },
+        ],
+    },
+]
+
+
 # fmt: off
 PASSAGE = """
     1.1 μῆνιν ἄειδε θεὰ Πηληϊάδεω Ἀχιλῆος
