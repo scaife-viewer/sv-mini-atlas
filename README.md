@@ -183,3 +183,9 @@ Invoke tests via:
 ```
 pytest
 ```
+
+## Deploying to QA instances
+
+PRs against `master` will automatically be deployed to Heroku as a ["review app"](https://devcenter.heroku.com/articles/github-integration-review-apps) after tests pass on CircleCI.
+
+The review app for a PR will be deleted when the PR is closed / merged, or after 30 days after no new commits are added to an open PR.
