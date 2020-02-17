@@ -75,3 +75,25 @@ class Node(MP_Node):
                 parentobj["children"].append(newobj)
             index[path] = newobj
         return tree
+
+
+class Token(models.Model):
+    text_part = models.ForeignKey(
+        "Node", related_name="tokens", on_delete=models.CASCADE
+    )
+
+    value = models.CharField(max_length=255)
+
+    # @@@ consider JSON or EAV to store / filter attrs
+    word_value = models.CharField(max_length=255, blank=True, null=True)
+    uuid = models.CharField(max_length=255, blank=True, null=True)
+    lemma = models.CharField(max_length=255, blank=True, null=True)
+    gloss = models.CharField(max_length=255, blank=True, null=True)
+    part_of_speech = models.CharField(max_length=255, blank=True, null=True)
+    tag = models.CharField(max_length=255, blank=True, null=True)
+    case = models.CharField(max_length=255, blank=True, null=True)
+    mood = models.CharField(max_length=255, blank=True, null=True)
+    named_entity = models.CharField(max_length=255, blank=True, null=True)
+
+    position = models.IntegerField()
+    idx = models.IntegerField(help_text="0-based index")
