@@ -3,7 +3,7 @@ import os
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
-from sv_mini_atlas.library import importers
+from sv_mini_atlas.library import importers, tokenizers
 
 
 class Command(BaseCommand):
@@ -23,3 +23,6 @@ class Command(BaseCommand):
 
         self.stdout.write("--[Loading versions]--")
         importers.import_versions()
+
+        self.stdout.write("--[Tokenizing the Iliad]--")
+        tokenizers.tokenize_text_parts("urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:")

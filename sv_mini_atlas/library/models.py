@@ -97,3 +97,24 @@ class Token(models.Model):
 
     position = models.IntegerField()
     idx = models.IntegerField(help_text="0-based index")
+
+    @classmethod
+    def tokenize(cls, text_part_node, counters):
+        pieces = text_part_node.text_content.split()
+        to_create = []
+        for pos, piece in enumerate(pieces):
+            to_create.append(
+                cls(
+                    text_part=text_part_node,
+                    value=piece,
+                    position=pos + 1,
+                    # @@@ not a true uuid
+                    uuid=f"t{text_part_node.ref}_{pos}",
+                    idx=counters["token_idx"],
+                )
+            )
+            counters["token_idx"] += 1
+        return to_create
+
+    def __str__(self):
+        return f"{self.text_part.urn} :: {self.value}"
