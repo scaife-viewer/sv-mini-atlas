@@ -4,6 +4,7 @@ import sys
 from collections import defaultdict
 
 from django.conf import settings
+from django.db.models import Max
 from django.utils.translation import ugettext_noop
 
 from treebeard.exceptions import PathOverflow
@@ -178,23 +179,34 @@ class CTSImporter:
                     node = parent.add_child(**data)
                 self.nodes[data["urn"]] = node
 
+    def set_numchild(self, node):
+        node.numchild = Node.objects.filter(
+            path__startswith=node.path, depth=node.depth + 1
+        ).count()
+
+    def update_numchild_values(self):
+        version = Node.objects.get(urn=self.version_data["urn"])
+
+        to_update = []
+        self.set_numchild(version)
+        to_update.append(version)
+
+        descendants = version.get_descendants()
+        max_depth = descendants.all().aggregate(max_depth=Max("depth"))["max_depth"]
+        # move this out to an expression if we can
+        for node in version.get_descendants().exclude(depth=max_depth):
+            self.set_numchild(node)
+            to_update.append(node)
+        Node.objects.bulk_update(to_update, ["numchild"], batch_size=500)
+
     def finalize(self):
         if self.BULK_CREATE_PASSAGE_NODES:
             Node.objects.bulk_create(self.nodes_to_create, batch_size=500)
+            self.update_numchild_values()
 
-            # @@@ descenant count is borked, we might want to fix it,
-            # but will require some intelligent queries to be performant.
-            # can identify via `Node.find_problems`
-
-            created_count = Node.objects.filter(
-                urn__startswith=self.version_data["urn"]
-            ).count()
-            # subtract the version URN
-            created_count -= 1
-        else:
-            created_count = Node.objects.get(
-                urn=self.version_data["urn"]
-            ).get_descendant_count()
+        created_count = Node.objects.get(
+            urn=self.version_data["urn"]
+        ).get_descendant_count()
         return created_count
 
     def apply(self):
