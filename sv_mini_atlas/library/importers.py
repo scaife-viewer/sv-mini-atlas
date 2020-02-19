@@ -72,6 +72,7 @@ class CTSImporter:
             "citation_scheme": self.citation_scheme,
             "work_title": self.name,
             "first_passage_urn": self.version_data["first_passage_urn"],
+            "default_toc_urn": self.version_data.get("default_toc_urn"),
         }
 
     def __init__(self, library, version_data, nodes=dict()):
