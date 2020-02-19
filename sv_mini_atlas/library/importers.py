@@ -189,6 +189,8 @@ class CTSImporter:
             created_count = Node.objects.filter(
                 urn__startswith=self.version_data["urn"]
             ).count()
+            # subtract the version URN
+            created_count -= 1
         else:
             created_count = Node.objects.get(
                 urn=self.version_data["urn"]
