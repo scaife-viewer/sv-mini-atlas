@@ -4,6 +4,9 @@ import sys
 from collections import defaultdict
 
 from django.conf import settings
+from django.utils.translation import ugettext_noop
+
+from treebeard.exceptions import PathOverflow
 
 from sv_mini_atlas import constants
 
@@ -63,6 +66,7 @@ class CTSImporter:
 
     CTS_URN_SCHEME = constants.CTS_URN_NODES[:-1]
     CTS_URN_SCHEME_EXEMPLAR = constants.CTS_URN_NODES
+    BULK_CREATE_PASSAGE_NODES = True
 
     def get_version_metadata(self):
         return {
@@ -87,6 +91,34 @@ class CTSImporter:
         self.citation_scheme = self.version_data["citation_scheme"]
         self.metadata = self.get_version_metadata()
         self.idx_lookup = defaultdict(int)
+
+        self.nodes_to_create = []
+        self.node_last_child_lookup = defaultdict()
+
+    def add_child_to_parent_via_bulk_create(self, parent_node, child_node):
+        # @@@ bastardized version of `Node._inc_path`
+        # see https://github.com/django-treebeard/django-treebeard/blob/2c14a9a564cc6efc59128012aa5fc650a86a650e/treebeard/mp_tree.py#L1121
+
+        child_node.depth = parent_node.depth + 1
+
+        last_child = self.node_last_child_lookup.get(parent_node.urn)
+        if not last_child:
+            # the node had no children, adding the first child
+            child_node.path = Node._get_path(parent_node.path, child_node.depth, 1)
+            max_length = Node._meta.get_field("path").max_length
+            if len(child_node.path) > max_length:
+                raise PathOverflow(
+                    ugettext_noop(
+                        "The new node is too deep in the tree, try"
+                        " increasing the path.max_length property"
+                        " and UPDATE your database"
+                    )
+                )
+        else:
+            # adding the new child as the last one
+            child_node.path = last_child._inc_path()
+        self.node_last_child_lookup[parent_node.urn] = child_node
+        self.nodes_to_create.append(child_node)
 
     def get_node_idx(self, kind):
         idx = self.idx_lookup[kind]
@@ -137,19 +169,39 @@ class CTSImporter:
                 data.update({"idx": self.get_node_idx(data["kind"])})
                 if idx == 0:
                     node = Node.add_root(**data)
+                elif data.get("rank") and self.BULK_CREATE_PASSAGE_NODES:
+                    node = Node(**data)
+                    parent = self.nodes.get(node_data[idx - 1]["urn"])
+                    self.add_child_to_parent_via_bulk_create(parent, node)
                 else:
                     parent = self.nodes.get(node_data[idx - 1]["urn"])
                     node = parent.add_child(**data)
                 self.nodes[data["urn"]] = node
+
+    def finalize(self):
+        if self.BULK_CREATE_PASSAGE_NODES:
+            Node.objects.bulk_create(self.nodes_to_create, batch_size=500)
+
+            # @@@ descenant count is borked, we might want to fix it,
+            # but will require some intelligent queries to be performant.
+            # can identify via `Node.find_problems`
+
+            created_count = Node.objects.filter(
+                urn__startswith=self.version_data["urn"]
+            ).count()
+        else:
+            created_count = Node.objects.get(
+                urn=self.version_data["urn"]
+            ).get_descendant_count()
+        return created_count
 
     def apply(self):
         full_content_path = self.library.versions[self.urn.absolute]["path"]
         with open(full_content_path, "r") as f:
             for line in f:
                 self.generate_branch(line)
-        created_count = Node.objects.get(
-            urn=self.version_data["urn"]
-        ).get_descendant_count()
+
+        created_count = self.finalize()
         print(f"{self.name}: {created_count + 1} nodes.", file=sys.stderr)
 
 
