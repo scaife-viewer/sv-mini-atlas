@@ -24,5 +24,5 @@ class Command(BaseCommand):
         self.stdout.write("--[Loading versions]--")
         importers.import_versions()
 
-        self.stdout.write("--[Tokenizing the Iliad]--")
-        tokenizers.tokenize_text_parts("urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:")
+        self.stdout.write("--[Tokenizing versions/exemplars]--")
+        tokenizers.tokenize_all_text_parts()
