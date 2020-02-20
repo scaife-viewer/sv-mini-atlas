@@ -180,24 +180,72 @@ class CTSImporter:
                 self.nodes[data["urn"]] = node
 
     def set_numchild(self, node):
+        # @@@ experiment with F expressions
+        # @@@ experiment with path__range queries
         node.numchild = Node.objects.filter(
             path__startswith=node.path, depth=node.depth + 1
         ).count()
 
-    def update_numchild_values(self):
+    def update_numchild_naively(self):
         version = Node.objects.get(urn=self.version_data["urn"])
-
-        to_update = []
         self.set_numchild(version)
-        to_update.append(version)
+        to_update = [version]
 
+        # once `numchild` is set on version, we can get descendants
         descendants = version.get_descendants()
         max_depth = descendants.all().aggregate(max_depth=Max("depth"))["max_depth"]
-        # move this out to an expression if we can
-        for node in version.get_descendants().exclude(depth=max_depth):
+        for node in descendants.exclude(depth=max_depth):
             self.set_numchild(node)
             to_update.append(node)
         Node.objects.bulk_update(to_update, ["numchild"], batch_size=500)
+
+    def update_numchild_via_subqueries(self):
+        """
+        SELECT
+            t.kind,
+            t.urn,
+            t.path,
+            (
+                SELECT count(1)
+                FROM library_node as s
+                WHERE s.path LIKE t.path || '%'
+                AND s.depth = t.depth + 1
+            ) as path_count
+        FROM library_node as t
+        """
+        # @@@ I spent too much time trying work this out with the ORM;
+        # don't really see a performance improvement
+        version = Node.objects.get(urn=self.version_data["urn"])
+        descendants = Node.objects.filter(path__startswith=version.path)
+        max_depth = descendants.filter(urn__startswith=version.urn).aggregate(
+            max_depth=Max("depth")
+        )["max_depth"]
+        qs = (
+            descendants.filter(depth__lt=max_depth)
+            .extra(
+                select={
+                    "real_numchild": "SELECT COUNT(1) "
+                    "FROM library_node as ln "
+                    "WHERE ln.depth = library_node.depth + 1 "
+                    "AND ln.path LIKE library_node.path || %s"
+                },
+                select_params=("%",),
+            )
+            .values("pk", "numchild", "real_numchild")
+        )
+
+        # @@@ would rather have an UPDATE clause on the `qs`,
+        # but I couldn't get there
+        to_update = []
+        for row in qs:
+            real_numchild = row.pop("real_numchild")
+            if row["numchild"] != real_numchild:
+                to_update.append(Node(pk=row["pk"], numchild=real_numchild))
+
+        Node.objects.bulk_update(to_update, ["numchild"], batch_size=500)
+
+    def update_numchild_values(self):
+        return self.update_numchild_naively()
 
     def finalize(self):
         if self.BULK_CREATE_PASSAGE_NODES:
