@@ -68,6 +68,7 @@ VERSION_METADATA = {
     "citation_scheme": ["book", "line"],
     "work_title": "Iliad",
     "first_passage_urn": "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.1-1.7",
+    "default_toc_urn": None,
 }
 
 LIBRARY_DATA = {
