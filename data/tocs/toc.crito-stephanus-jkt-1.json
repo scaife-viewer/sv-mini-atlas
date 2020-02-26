@@ -1,0 +1,241 @@
+{
+  "@id": "urn:cite:scaife-viewer:toc.crito-stephanus-jkt-1",
+  "title": "Crito by Stephanus Number",
+  "items": [    {
+      "title": "Crito 43a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:001.00-008.01"
+    },
+    {
+      "title": "Crito 43b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:009.00-011.01"
+    },
+    {
+      "title": "Crito 43c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:012.00-015.02"
+    },
+    {
+      "title": "Crito 43d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:015.02-017.02"
+    },
+    {
+      "title": "Crito 44a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:018.00-023.01"
+    },
+    {
+      "title": "Crito 44b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:023.01-026.03"
+    },
+    {
+      "title": "Crito 44c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:026.03-027.02"
+    },
+    {
+      "title": "Crito 44d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:028.00-029.03"
+    },
+    {
+      "title": "Crito 44e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:030.00-031.01"
+    },
+    {
+      "title": "Crito 45a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:031.01-033.02"
+    },
+    {
+      "title": "Crito 45b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:033.03-033.07"
+    },
+    {
+      "title": "Crito 45c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:033.07-033.10"
+    },
+    {
+      "title": "Crito 45d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:033.10-033.14"
+    },
+    {
+      "title": "Crito 45e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:033.14-033.14"
+    },
+    {
+      "title": "Crito 46a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:033.14-034.04"
+    },
+    {
+      "title": "Crito 46b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:035.00-035.05"
+    },
+    {
+      "title": "Crito 46c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:035.05-035.09"
+    },
+    {
+      "title": "Crito 46d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:035.09-035.12"
+    },
+    {
+      "title": "Crito 46e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:035.12-036.01"
+    },
+    {
+      "title": "Crito 47a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:036.01-042.02"
+    },
+    {
+      "title": "Crito 47b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:042.02-047.01"
+    },
+    {
+      "title": "Crito 47c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:048.00-052.02"
+    },
+    {
+      "title": "Crito 47d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:052.02-054.01"
+    },
+    {
+      "title": "Crito 47e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:054.01-058.02"
+    },
+    {
+      "title": "Crito 48a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:058.02-062.04"
+    },
+    {
+      "title": "Crito 48b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:063.00-068.01"
+    },
+    {
+      "title": "Crito 48c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:068.01-068.04"
+    },
+    {
+      "title": "Crito 48d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:068.04-070.01"
+    },
+    {
+      "title": "Crito 48e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:070.01-070.04"
+    },
+    {
+      "title": "Crito 49a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:070.04-072.03"
+    },
+    {
+      "title": "Crito 49b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:072.03-076.01"
+    },
+    {
+      "title": "Crito 49c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:077.00-084.02"
+    },
+    {
+      "title": "Crito 49d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:084.02-084.05"
+    },
+    {
+      "title": "Crito 49e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:084.06-088.02"
+    },
+    {
+      "title": "Crito 50a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:088.02-090.04"
+    },
+    {
+      "title": "Crito 50b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:090.04-090.07"
+    },
+    {
+      "title": "Crito 50c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:090.08-092.05"
+    },
+    {
+      "title": "Crito 50d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:092.05-092.10"
+    },
+    {
+      "title": "Crito 50e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:092.10-093.01"
+    },
+    {
+      "title": "Crito 51a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:093.01-093.03"
+    },
+    {
+      "title": "Crito 51b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:093.03-093.03"
+    },
+    {
+      "title": "Crito 51c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:093.03-095.03"
+    },
+    {
+      "title": "Crito 51d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:095.03-095.04"
+    },
+    {
+      "title": "Crito 51e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:095.04-095.05"
+    },
+    {
+      "title": "Crito 52a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:095.05-096.05"
+    },
+    {
+      "title": "Crito 52b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:096.06-096.07"
+    },
+    {
+      "title": "Crito 52c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:096.07-096.11"
+    },
+    {
+      "title": "Crito 52d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:096.11-098.02"
+    },
+    {
+      "title": "Crito 52e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:098.02-099.01"
+    },
+    {
+      "title": "Crito 53a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:099.01-099.07"
+    },
+    {
+      "title": "Crito 53b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:099.07-099.09"
+    },
+    {
+      "title": "Crito 53c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:099.09-099.15"
+    },
+    {
+      "title": "Crito 53d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:099.15-099.19"
+    },
+    {
+      "title": "Crito 53e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:099.19-100.01"
+    },
+    {
+      "title": "Crito 54a",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:100.01-100.08"
+    },
+    {
+      "title": "Crito 54b",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:100.08-100.11"
+    },
+    {
+      "title": "Crito 54c",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:100.11-100.13"
+    },
+    {
+      "title": "Crito 54d",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:100.13-101.01"
+    },
+    {
+      "title": "Crito 54e",
+      "uri": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:102.00-102.01"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "@id": "urn:cite:scaife-viewer:toc.oaf-1",
+  "title": "Apostolic Fathers",
+  "description": "The Open Apostolic Fathers editions based on the text of Lake",
+  "items": [
+    {
+      "title": "1 Clement",
+      "uri": "urn:cts:greekLit:tlg1271.tlg001.oaf-1:0-1"
+    },
+    {
+      "title": "2 Clement",
+      "uri": "urn:cts:greekLit:tlg1271.tlg002.oaf-1:1"
+    },
+    {
+      "title": "Ignatius Ephesians",
+      "uri": "urn:cts:greekLit:tlg1443.tlg004.oaf-1:0-1"
+    },
+    {
+      "title": "Ignatius Magnesians",
+      "uri": "urn:cts:greekLit:tlg1443.tlg005.oaf-1:0-1"
+    },
+    {
+      "title": "Ignatius Trallians",
+      "uri": "urn:cts:greekLit:tlg1443.tlg006.oaf-1:0-1"
+    },
+    {
+      "title": "Ignatius Romans",
+      "uri": "urn:cts:greekLit:tlg1443.tlg007.oaf-1:0-1"
+    },
+    {
+      "title": "Ignatius Philadelphians",
+      "uri": "urn:cts:greekLit:tlg1443.tlg008.oaf-1:0-1"
+    },
+    {
+      "title": "Ignatius Smyrnaean",
+      "uri": "urn:cts:greekLit:tlg1443.tlg009.oaf-1:0-1"
+    },
+    {
+      "title": "Ignatius Polycarp",
+      "uri": "urn:cts:greekLit:tlg1443.tlg010.oaf-1:0-1"
+    },
+    {
+      "title": "Polycarp Philippians",
+      "uri": "urn:cts:greekLit:tlg1622.tlg001.oaf-1:0-1"
+    },
+    {
+      "title": "Didache",
+      "uri": "urn:cts:greekLit:tlg1311.tlg001.oaf-1:0-1"
+    },
+    {
+      "title": "Barnabas",
+      "uri": "urn:cts:greekLit:tlg1216.tlg001.oaf-1:1"
+    },
+    {
+      "title": "Shepherd",
+      "uri": "urn:cts:greekLit:tlg1419.tlg001.oaf-1:1"
+    },
+    {
+      "title": "Martyrdom of Polycarp",
+      "uri": "urn:cts:greekLit:tlg1484.tlg001.oaf-1:0-1"
+    },
+    {
+      "title": "Diognetus",
+      "uri": "urn:cts:greekLit:tlg0646.tlg004.oaf-1:1"
+    }
+  ]
+}

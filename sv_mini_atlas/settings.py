@@ -132,6 +132,7 @@ INSTALLED_APPS = [
     # project
     "sv_mini_atlas",
     "sv_mini_atlas.library",
+    "sv_mini_atlas.tocs",
 ]
 
 ADMIN_URL = "admin:index"

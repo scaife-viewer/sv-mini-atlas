@@ -1,0 +1,14 @@
+{
+  "@id": "urn:cite:scaife-viewer:toc.demo-root",
+  "title": "Demo Tables of Contents",
+  "items": [
+    {
+      "title": "Apostolic Fathers",
+      "uri": "urn:cite:scaife-viewer:toc.oaf-1"
+    },
+    {
+      "title": "Crito by Stephanus Number",
+      "uri": "urn:cite:scaife-viewer:toc.crito-stephanus-jkt-1"
+    }
+  ]
+}
