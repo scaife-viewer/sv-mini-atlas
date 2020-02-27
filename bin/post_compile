@@ -1,2 +1,6 @@
 #!/bin/bash
-python manage.py prepare_db
+# @@@ restore prepare_db
+# python manage.py prepare_db
+
+curl https://storage.googleapis.com/atlas-db-tarballs/sv-mini-atlas/db-18fb108e09eecfa4f34438ff1a1ae6fe.tgz > db.tgz
+tar -zxvf db.tgz
