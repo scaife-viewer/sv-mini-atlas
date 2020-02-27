@@ -1,0 +1,52 @@
+{
+  "urn": "urn:cts:uvademo:maya.popolvuh:",
+  "group_urn": "urn:cts:uvademo:maya:",
+  "node_kind": "work",
+  "lang": "quc",
+  "title": [
+    {
+      "lang": "eng",
+      "value": "Popol Vuh"
+    }
+  ],
+  "versions": [
+    {
+      "urn": "urn:cts:uvademo:maya.popolvuh.quc:",
+      "node_kind": "version",
+      "version_kind": "edition",
+      "first_passage_urn": "urn:cts:uvademo:maya.popolvuh.quc:f01s1.1-f01s1.30",
+      "citation_scheme": ["page", "line"],
+      "label": [
+        {
+          "lang": "eng",
+          "value": "Popol Vuh (K’iche’)"
+        }
+      ],
+      "description": [
+        {
+          "lang": "eng",
+          "value": ""
+        }
+      ]
+    },
+    {
+      "urn": "urn:cts:uvademo:maya.popolvuh.spa:",
+      "node_kind": "version",
+      "version_kind": "edition",
+      "first_passage_urn": "urn:cts:uvademo:maya.popolvuh.spa:f01s1.1-f01s1.30",
+      "citation_scheme": ["page", "line"],
+      "label": [
+        {
+          "lang": "eng",
+          "value": "Popol Vuh (Spanish)"
+        }
+      ],
+      "description": [
+        {
+          "lang": "eng",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

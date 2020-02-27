@@ -1,0 +1,10 @@
+{
+  "urn": "urn:cts:uvademo:maya:",
+  "node_kind": "textgroup",
+  "name": [
+    {
+      "lang": "eng",
+      "value": "Maya"
+    }
+  ]
+}
