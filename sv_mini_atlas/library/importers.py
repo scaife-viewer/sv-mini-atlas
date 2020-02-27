@@ -35,6 +35,8 @@ class LibraryDataResolver:
         for dirpath, dirnames, filenames in sorted(os.walk(data_dir_path)):
             if "metadata.json" not in filenames:
                 continue
+            if not dirpath.count("maya"):
+                continue
 
             metadata = json.load(open(os.path.join(dirpath, "metadata.json")))
             assert metadata["node_kind"] in ["textgroup", "work"]
