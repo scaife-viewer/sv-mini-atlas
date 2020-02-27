@@ -151,7 +151,12 @@ class PassageTextPartConnection(Connection):
             end_obj = version.get_descendants().get(ref=last_ref)
 
         data = {}
-        siblings_qs = start_obj.get_siblings()
+        # siblings_qs = start_obj.get_siblings()
+
+        # TODO: add a proper method to `Node` that is what we really want
+        # with `get_siblings`; nodes at the same level sharing a parent
+        siblings_qs = version.get_descendants().filter(rank=start_obj.rank)
+
         start_idx = start_obj.idx
         chunk_length = end_obj.idx - start_obj.idx + 1
         data["ancestors"] = self.get_ancestor_metadata(version, start_obj)
