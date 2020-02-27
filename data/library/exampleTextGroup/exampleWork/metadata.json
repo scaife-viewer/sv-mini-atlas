@@ -1,0 +1,33 @@
+{
+  "urn": "urn:cts:exampleNS:exampleTextGroup.exampleWork:",
+  "group_urn": "urn:cts:exampleNS:exampleTextGroup:",
+  "node_kind": "work",
+  "lang": "eng",
+  "title": [
+    {
+      "lang": "eng",
+      "value": "Example Work"
+    }
+  ],
+  "versions": [
+    {
+      "urn": "urn:cts:exampleNS:exampleTextGroup.exampleWork.exampleVersion:",
+      "node_kind": "version",
+      "version_kind": "edition",
+      "first_passage_urn": "urn:cts:exampleNS:exampleTextGroup.exampleWork.exampleVersion:1.1-1.7",
+      "citation_scheme": ["book", "line"],
+      "label": [
+        {
+          "lang": "eng",
+          "value": "Example Work Version"
+        }
+      ],
+      "description": [
+        {
+          "lang": "eng",
+          "value": ""
+        }
+      ]
+    }
+  ]
+}
