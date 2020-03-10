@@ -42,9 +42,14 @@ def test_importer(mock_open):
     assert Node.objects.filter(kind="work").count() == 1
     assert Node.objects.filter(kind="version").count() == 1
 
+    version = Node.objects.get(urn=version_urn)
+    assert version.numchild == version.get_children().count()
+
     books = Node.objects.filter(kind="book")
     assert books.count() == 1
     assert all(book.rank == 1 for book in books)
+    book = books.first()
+    assert book.numchild == book.get_children().count()
 
     lines = Node.objects.filter(kind="line")
     assert lines.count() == 7
