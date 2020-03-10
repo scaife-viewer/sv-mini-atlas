@@ -67,7 +67,6 @@ class CTSImporter:
 
     CTS_URN_SCHEME = constants.CTS_URN_NODES[:-1]
     CTS_URN_SCHEME_EXEMPLAR = constants.CTS_URN_NODES
-    BULK_CREATE_PASSAGE_NODES = True
 
     def __init__(self, library, version_data, nodes=dict()):
         self.library = library
@@ -164,7 +163,7 @@ class CTSImporter:
         return child_node
 
     def use_bulk(self, node_data):
-        return bool(node_data.get("rank") and self.BULK_CREATE_PASSAGE_NODES)
+        return bool(node_data.get("rank"))
 
     def generate_node(self, idx, node_data, parent_urn):
         if idx == 0:
@@ -207,51 +206,7 @@ class CTSImporter:
                 node = self.generate_node(idx, node_data, parent_urn)
                 self.nodes[node_data["urn"]] = node
 
-    def update_numchild_via_subqueries(self):
-        """
-        SELECT
-            t.kind,
-            t.urn,
-            t.path,
-            (
-                SELECT count(1)
-                FROM library_node as s
-                WHERE s.path LIKE t.path || '%'
-                AND s.depth = t.depth + 1
-            ) as path_count
-        FROM library_node as t
-        """
-        # @@@ I spent too much time trying work this out with the ORM;
-        # don't really see a performance improvement
-        descendants = Node.objects.filter(path__startswith=self.version_node.path)
-        max_depth = descendants.filter(urn__startswith=self.urn).aggregate(
-            max_depth=Max("depth")
-        )["max_depth"]
-        qs = (
-            descendants.filter(depth__lt=max_depth)
-            .extra(
-                select={
-                    "real_numchild": "SELECT COUNT(1) "
-                    "FROM library_node as ln "
-                    "WHERE ln.depth = library_node.depth + 1 "
-                    "AND ln.path LIKE library_node.path || %s"
-                },
-                select_params=("%",),
-            )
-            .values("pk", "numchild", "real_numchild")
-        )
-
-        # @@@ would rather have an UPDATE clause on the `qs`,
-        # but I couldn't get there
-        to_update = []
-        for row in qs:
-            real_numchild = row.pop("real_numchild")
-            if row["numchild"] != real_numchild:
-                to_update.append(Node(pk=row["pk"], numchild=real_numchild))
-
-        Node.objects.bulk_update(to_update, ["numchild"], batch_size=500)
-
-    def update_numchild_naively(self):
+    def update_numchild_values(self):
         self.set_numchild(self.version_node)
         to_update = [self.version_node]
 
@@ -263,14 +218,10 @@ class CTSImporter:
             to_update.append(node)
         Node.objects.bulk_update(to_update, ["numchild"], batch_size=500)
 
-    def update_numchild_values(self):
-        return self.update_numchild_naively()
-
     def finalize(self):
         self.version_node = Node.objects.get(urn=self.urn.absolute)
-        if self.BULK_CREATE_PASSAGE_NODES:
-            Node.objects.bulk_create(self.nodes_to_create, batch_size=500)
-            self.update_numchild_values()
+        Node.objects.bulk_create(self.nodes_to_create, batch_size=500)
+        self.update_numchild_values()
         return self.version_node.get_descendant_count() + 1
 
     def apply(self):
