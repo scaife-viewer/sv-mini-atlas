@@ -1,4 +1,6 @@
-# sv_mini_atlas
+# SV Mini ATLAS
+
+ATLAS implementation for the Scaife "SV Mini" prototype
 
 ## Getting Started
 
