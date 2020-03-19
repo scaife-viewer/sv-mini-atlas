@@ -138,7 +138,7 @@ class CTSImporter:
         }
 
     def add_child_bulk(self, parent, node_data):
-        # @@@ bastardized version of `Node._inc_path`
+        # @@@ forked version of `Node._inc_path`
         # https://github.com/django-treebeard/django-treebeard/blob/master/treebeard/mp_tree.py#L1121
         child_node = Node(**node_data)
         child_node.depth = parent.depth + 1
@@ -163,6 +163,14 @@ class CTSImporter:
         return child_node
 
     def use_bulk(self, node_data):
+        """
+        `Node.save` performs multiple INSERT and UPDATE queries.
+
+        For text-part level nodes, we see a massive performance
+        benefit by batching and bulk inserting the nodes, and then
+        bulk updating any parent nodes to keep the `numchild`
+        value of nodes in sync.
+        """
         return bool(node_data.get("rank"))
 
     def generate_node(self, idx, node_data, parent_urn):
