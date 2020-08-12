@@ -16,6 +16,8 @@ STANDOFF_DIR = os.path.join(NAMED_ENTITIES_DATA_PATH, "processed", "standoff")
 
 
 def get_entity_paths():
+    if not os.path.exists(ENTITIES_DIR):
+        return []
     return [
         os.path.join(ENTITIES_DIR, f)
         for f in os.listdir(ENTITIES_DIR)
@@ -44,6 +46,8 @@ def _populate_lookup(path, lookup):
 
 
 def get_standoff_paths():
+    if not os.path.exists(STANDOFF_DIR):
+        return []
     return [
         os.path.join(STANDOFF_DIR, f)
         for f in os.listdir(STANDOFF_DIR)

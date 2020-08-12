@@ -149,6 +149,10 @@ def import_metrical_annotations(reset=False):
         MetricalAnnotation.objects.all().delete()
     version_urn = "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:"
     raw_path = os.path.join(ANNOTATIONS_DATA_PATH, "raw", "iliad1.csv")
+
+    if not os.path.exists(raw_path):
+        return
+
     processor = MetricalAnnotationProcessor()
 
     header = ["line_num", "foot_code", "line_data"]

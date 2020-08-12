@@ -12,6 +12,8 @@ ANNOTATIONS_DATA_PATH = os.path.join(
 
 
 def get_paths():
+    if not os.path.exists(ANNOTATIONS_DATA_PATH):
+        return []
     return [
         os.path.join(ANNOTATIONS_DATA_PATH, f)
         for f in os.listdir(ANNOTATIONS_DATA_PATH)
