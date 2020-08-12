@@ -6,6 +6,7 @@ from django.conf import settings
 from ..models import MetricalAnnotation
 
 
+# @@@ move these constants out to the data
 COPYRIGHT_FRAGMENT = "© 2016 David Chamberlain under CC BY 4.0 License, https://creativecommons.org/licenses/by/4.0/"
 
 ANNOTATIONS_DATA_PATH = os.path.join(
