@@ -14,6 +14,7 @@
       "urn": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:",
       "node_kind": "version",
       "version_kind": "edition",
+      "lang": "grc",
       "first_passage_urn": "urn:cts:greekLit:tlg0059.tlg003.jkt-1:001-006",
       "default_toc_urn": "urn:cite:scaife-viewer:toc.crito-stephanus-jkt-1",
       "citation_scheme": ["speech", "sentence"],
