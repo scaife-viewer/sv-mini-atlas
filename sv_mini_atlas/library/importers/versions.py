@@ -274,8 +274,14 @@ def resolve_library():
     return Library(text_groups, works, versions)
 
 
-def get_first_value_for_language(values, lang):
-    return next(iter(filter(lambda x: x["lang"] == lang, values)), None).get("value")
+def get_first_value_for_language(values, lang, fallback=True):
+    value = next(iter(filter(lambda x: x["lang"] == lang, values)), None)
+    if value is None:
+        if fallback:
+            value = values[0]
+        else:
+            raise ValueError(f"Could not find a value for {lang}")
+    return value.get("value")
 
 
 def import_versions(reset=False):
