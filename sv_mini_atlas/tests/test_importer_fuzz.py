@@ -2,7 +2,7 @@ import copy
 
 import hypothesis
 
-from sv_mini_atlas.library.importers import CTSImporter, Library
+from sv_mini_atlas.library.importers.versions import CTSImporter, Library
 from sv_mini_atlas.library.urn import URN
 from sv_mini_atlas.tests.strategies import URNs
 
@@ -31,6 +31,7 @@ def _get_library(urn):
                         "urn": version_urn,
                         "node_kind": "version",
                         "version_kind": "edition",
+                        "lang": "grc",
                         "first_passage_urn": f"{version_urn}1.1-1.5",
                         "citation_scheme": None,
                         "title": [{"lang": "eng", "value": "Some Title"}],
@@ -44,9 +45,10 @@ def _get_library(urn):
                 "urn": version_urn,
                 "node_kind": "version",
                 "version_kind": "edition",
+                "lang": "grc",
                 "first_passage_urn": f"{version_urn}1.1-1.5",
                 "citation_scheme": None,
-                "title": [{"lang": "eng", "value": "Some Title"}],
+                "label": [{"lang": "eng", "value": "Some Title"}],
                 "description": [{"lang": "eng", "value": "Some description."}],
             }
         },
