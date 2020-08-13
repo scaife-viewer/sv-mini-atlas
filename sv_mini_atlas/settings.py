@@ -129,9 +129,10 @@ INSTALLED_APPS = [
     "django_extensions",
     "graphene_django",
     "treebeard",
+    # scaife_viewer
+    "scaife_viewer.atlas",
     # project
     "sv_mini_atlas",
-    "sv_mini_atlas.library",
     "sv_mini_atlas.tocs",
 ]
 
@@ -179,7 +180,8 @@ GRAPHENE = {
 ATLAS_CONFIG = dict(
     IN_MEMORY_PASSAGE_CHUNK_MAX=int(
         os.environ.get("ATLAS_IN_MEMORY_PASSAGE_CHUNK_MAX", 2500)
-    )
+    ),
+    DATA_DIR=os.path.join(PROJECT_ROOT, "data"),
 )
 
 NODE_ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"

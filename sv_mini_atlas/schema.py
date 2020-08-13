@@ -1,9 +1,9 @@
 import graphene
 
-import sv_mini_atlas.library.schema
+import scaife_viewer.atlas.schema
 
 
-class Query(sv_mini_atlas.library.schema.Query, graphene.ObjectType):
+class Query(scaife_viewer.atlas.schema.Query, graphene.ObjectType):
     # This class will inherit from multiple Queries
     # as we begin to add more apps to our project
     pass

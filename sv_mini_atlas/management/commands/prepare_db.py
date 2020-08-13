@@ -3,7 +3,7 @@ import os
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
-from sv_mini_atlas.library import importers, tokenizers
+from scaife_viewer.atlas import importers, tokenizers
 
 
 class Command(BaseCommand):
