@@ -127,6 +127,7 @@ INSTALLED_APPS = [
     # third party
     "corsheaders",
     "django_extensions",
+    "django_jsonfield_backport",
     "graphene_django",
     "treebeard",
     # scaife_viewer
