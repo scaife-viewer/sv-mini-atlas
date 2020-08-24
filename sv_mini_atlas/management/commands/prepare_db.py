@@ -1,9 +1,17 @@
 import os
+from concurrent.futures import ProcessPoolExecutor as PreferredExecutor
 
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
+from contexttimer import Timer
+
 from scaife_viewer.atlas import importers, tokenizers
+from scaife_viewer.atlas.conf import settings
+
+
+# @@@ better way to alias this from our conf module?
+WORKER_COUNT = settings.SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY
 
 
 class Command(BaseCommand):
@@ -18,32 +26,60 @@ class Command(BaseCommand):
             os.remove("db.sqlite3")
             self.stdout.write("--[Removed existing database]--")
 
-        self.stdout.write("--[Creating database]--")
-        call_command("migrate")
+        with Timer() as t:
+            self.stdout.write("--[Creating database]--")
+            call_command("migrate")
+        print(t.elapsed)
 
-        self.stdout.write("--[Loading versions]--")
-        importers.versions.import_versions(reset=True)
+        with Timer() as t:
+            self.stdout.write("--[Loading versions]--")
+            importers.versions.import_versions(reset=True)
+        print(f"{t.elapsed}")
 
-        self.stdout.write("--[Loading alignments]--")
-        importers.alignments.import_alignments(reset=True)
+        async_stages_1 = [
+            ("Loading alignments", importers.alignments.import_alignments),
+            (
+                "Loading text annotations",
+                importers.text_annotations.import_text_annotations,
+            ),
+            (
+                "Loading metrical annotations",
+                importers.metrical_annotations.import_metrical_annotations,
+            ),
+            (
+                "Loading image annotations",
+                importers.image_annotations.import_image_annotations,
+            ),
+            (
+                "Loading audio annotations",
+                importers.audio_annotations.import_audio_annotations,
+            ),
+        ]
+        with Timer() as t:
+            with PreferredExecutor(max_workers=WORKER_COUNT) as executor:
+                for msg, stage in async_stages_1:
+                    print(f"--[{msg}]--")
+                    executor.submit(stage)
+        print(f"async_stages_1 {t.elapsed}")
 
-        self.stdout.write("--[Loading text annotations]--")
-        importers.text_annotations.import_text_annotations(reset=True)
+        with Timer() as t:
+            self.stdout.write("--[Tokenizing versions/exemplars]--")
+            tokenizers.tokenize_all_text_parts(reset=True)
+        print(f"tokenizers ran {t.elapsed}")
 
-        self.stdout.write("--[Loading metrical annotations]--")
-        importers.metrical_annotations.import_metrical_annotations(reset=True)
-
-        self.stdout.write("--[Loading image annotations]--")
-        importers.image_annotations.import_image_annotations(reset=True)
-
-        self.stdout.write("--[Loading audio annotations]--")
-        importers.audio_annotations.import_audio_annotations(reset=True)
-
-        self.stdout.write("--[Tokenizing versions/exemplars]--")
-        tokenizers.tokenize_all_text_parts(reset=True)
-
-        self.stdout.write("--[Loading token annotations]--")
-        importers.token_annotations.apply_token_annotations()
-
-        self.stdout.write("--[Loading named entity annotations]--")
-        importers.named_entities.apply_named_entities(reset=True)
+        async_stages_2 = [
+            (
+                "Loading token annotations",
+                importers.token_annotations.apply_token_annotations,
+            ),
+            (
+                "Loading named entity annotations",
+                importers.named_entities.apply_named_entities,
+            ),
+        ]
+        with Timer() as t:
+            with PreferredExecutor(max_workers=WORKER_COUNT) as executor:
+                for msg, stage in async_stages_2:
+                    print(f"--[{msg}]--")
+                    executor.submit(stage)
+        print(f"stage2 {t.elapsed}")
