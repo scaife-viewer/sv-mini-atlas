@@ -1,5 +1,5 @@
 # @@@ ATLAS package is not yet released to pypi
-git+https://github.com/scaife-viewer/backend.git@7af2f7b6d1125bb036f7d19dd1de8288af5a957a#subdirectory=atlas
+https://github.com/scaife-viewer/backend/archive/scaife-viewer-atlas@0.1-a1.zip#subdirectory=atlas
 
 django-cors-headers==3.1.1
 django-extensions==2.2.6
