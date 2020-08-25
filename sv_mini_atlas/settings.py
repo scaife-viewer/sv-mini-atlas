@@ -7,8 +7,18 @@ BASE_DIR = PACKAGE_ROOT
 
 DEBUG = bool(int(os.environ.get("DEBUG", "1")))
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": "db.sqlite3"}}
-
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "db.sqlite3",
+        # @@@ this timeout may not be appropriate
+        # for all sites using scaife-viewer-atlas,
+        # but we will likely have an ATLAS specific
+        # database router / ingestion-specific
+        # config in the future anyways
+        "OPTIONS": {"timeout": 5 * 60},
+    }
+}
 ALLOWED_HOSTS = ["localhost"]
 if "HEROKU_APP_NAME" in os.environ:
     ALLOWED_HOSTS = ["*"]
@@ -127,11 +137,13 @@ INSTALLED_APPS = [
     # third party
     "corsheaders",
     "django_extensions",
+    "django_jsonfield_backport",
     "graphene_django",
     "treebeard",
+    # scaife_viewer
+    "scaife_viewer.atlas",
     # project
     "sv_mini_atlas",
-    "sv_mini_atlas.library",
     "sv_mini_atlas.tocs",
 ]
 
@@ -179,7 +191,15 @@ GRAPHENE = {
 ATLAS_CONFIG = dict(
     IN_MEMORY_PASSAGE_CHUNK_MAX=int(
         os.environ.get("ATLAS_IN_MEMORY_PASSAGE_CHUNK_MAX", 2500)
-    )
+    ),
+    DATA_DIR=os.path.join(PROJECT_ROOT, "data"),
 )
 
 NODE_ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+
+# @@@ we will hit some timeouts with SQLite if we don't override this during ingestion, which I realize now we totally could
+# maybe do here too
+SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY = int(
+    os.environ.get("SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY", 1)
+)

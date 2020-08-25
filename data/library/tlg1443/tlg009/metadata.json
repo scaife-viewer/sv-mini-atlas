@@ -14,6 +14,7 @@
       "urn": "urn:cts:greekLit:tlg1443.tlg009.oaf-1:",
       "node_kind": "version",
       "version_kind": "edition",
+      "lang": "grc",
       "first_passage_urn": "urn:cts:greekLit:tlg1443.tlg009.oaf-1:0-1",
       "default_toc_urn": "urn:cite:scaife-viewer:toc.oaf-1",
       "citation_scheme": ["chapter", "verse"],
