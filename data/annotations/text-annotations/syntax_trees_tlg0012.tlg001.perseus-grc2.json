@@ -1,0 +1,317 @@
+[
+  {
+    "urn": "urn:cite2:exploreHomer:syntaxTree.v1:syntaxTree2274106",
+    "treebank_id": 2274106,
+    "words": [
+      {
+        "id": 1,
+        "value": "μῆνιν",
+        "head_id": 2,
+        "relation": "OBJ"
+      },
+      {
+        "id": 2,
+        "value": "ἄειδε",
+        "head_id": 32,
+        "relation": "PRED_CO"
+      },
+      {
+        "id": 3,
+        "value": "θεὰ",
+        "head_id": 2,
+        "relation": "ExD"
+      },
+      {
+        "id": 4,
+        "value": "Πηληϊάδεω",
+        "head_id": 5,
+        "relation": "ATR"
+      },
+      {
+        "id": 5,
+        "value": "Ἀχιλῆος",
+        "head_id": 1,
+        "relation": "ATR"
+      },
+      {
+        "id": 6,
+        "value": "οὐλομένην",
+        "head_id": 1,
+        "relation": "ATR"
+      },
+      {
+        "id": 7,
+        "value": ",",
+        "head_id": 23,
+        "relation": "AuxX"
+      },
+      {
+        "id": 8,
+        "value": "ἣ",
+        "head_id": 23,
+        "relation": "SBJ"
+      },
+      {
+        "id": 9,
+        "value": "μυρί̓",
+        "head_id": 11,
+        "relation": "ATR"
+      },
+      {
+        "id": 10,
+        "value": "Ἀχαιοῖς",
+        "head_id": 12,
+        "relation": "OBJ"
+      },
+      {
+        "id": 11,
+        "value": "ἄλγἐ",
+        "head_id": 12,
+        "relation": "OBJ"
+      },
+      {
+        "id": 12,
+        "value": "ἔθηκε",
+        "head_id": 23,
+        "relation": "ATR_CO"
+      },
+      {
+        "id": 13,
+        "value": ",",
+        "head_id": 23,
+        "relation": "AuxX"
+      },
+      {
+        "id": 14,
+        "value": "πολλὰς",
+        "head_id": 17,
+        "relation": "ATR"
+      },
+      {
+        "id": 15,
+        "value": "δ̓",
+        "head_id": 23,
+        "relation": "AuxY"
+      },
+      {
+        "id": 16,
+        "value": "ἰφθίμους",
+        "head_id": 17,
+        "relation": "ATR"
+      },
+      {
+        "id": 17,
+        "value": "ψυχὰς",
+        "head_id": 19,
+        "relation": "OBJ"
+      },
+      {
+        "id": 18,
+        "value": "Ἄϊδι",
+        "head_id": 19,
+        "relation": "OBJ"
+      },
+      {
+        "id": 19,
+        "value": "προΐαψεν",
+        "head_id": 23,
+        "relation": "ATR_CO"
+      },
+      {
+        "id": 20,
+        "value": "ἡρώων",
+        "head_id": 17,
+        "relation": "ATR"
+      },
+      {
+        "id": 21,
+        "value": ",",
+        "head_id": 23,
+        "relation": "AuxX"
+      },
+      {
+        "id": 22,
+        "value": "αὐτοὺς",
+        "head_id": 25,
+        "relation": "OBJ"
+      },
+      {
+        "id": 23,
+        "value": "δὲ",
+        "head_id": 1,
+        "relation": "COORD"
+      },
+      {
+        "id": 24,
+        "value": "ἑλώρια",
+        "head_id": 25,
+        "relation": "OCOMP"
+      },
+      {
+        "id": 25,
+        "value": "τεῦχε",
+        "head_id": 23,
+        "relation": "ATR_CO"
+      },
+      {
+        "id": 26,
+        "value": "κύνεσσιν",
+        "head_id": 28,
+        "relation": "OBJ_CO"
+      },
+      {
+        "id": 27,
+        "value": "οἰωνοῖσί",
+        "head_id": 28,
+        "relation": "OBJ_CO"
+      },
+      {
+        "id": 28,
+        "value": "τε",
+        "head_id": 25,
+        "relation": "COORD"
+      },
+      {
+        "id": 29,
+        "value": "πᾶσι",
+        "head_id": 27,
+        "relation": "ATR"
+      },
+      {
+        "id": 30,
+        "value": ",",
+        "head_id": 32,
+        "relation": "AuxX"
+      },
+      {
+        "id": 31,
+        "value": "Διὸς",
+        "head_id": 34,
+        "relation": "ATR"
+      },
+      {
+        "id": 32,
+        "value": "δ̓",
+        "head_id": 0,
+        "relation": "COORD"
+      },
+      {
+        "id": 33,
+        "value": "ἐτελείετο",
+        "head_id": 32,
+        "relation": "PRED_CO"
+      },
+      {
+        "id": 34,
+        "value": "βουλή",
+        "head_id": 33,
+        "relation": "SBJ"
+      },
+      {
+        "id": 35,
+        "value": ",",
+        "head_id": 41,
+        "relation": "AuxX"
+      },
+      {
+        "id": 36,
+        "value": "ἐξ",
+        "head_id": 41,
+        "relation": "AuxP"
+      },
+      {
+        "id": 37,
+        "value": "οὗ",
+        "head_id": 36,
+        "relation": "ADV"
+      },
+      {
+        "id": 38,
+        "value": "δὴ",
+        "head_id": 41,
+        "relation": "AuxY"
+      },
+      {
+        "id": 39,
+        "value": "τὰ",
+        "head_id": 40,
+        "relation": "ATR"
+      },
+      {
+        "id": 40,
+        "value": "πρῶτα",
+        "head_id": 41,
+        "relation": "ADV"
+      },
+      {
+        "id": 41,
+        "value": "διαστήτην",
+        "head_id": 33,
+        "relation": "ADV"
+      },
+      {
+        "id": 42,
+        "value": "ἐρίσαντε",
+        "head_id": 41,
+        "relation": "ADV"
+      },
+      {
+        "id": 43,
+        "value": "Ἀτρεΐδης",
+        "head_id": 47,
+        "relation": "SBJ_CO"
+      },
+      {
+        "id": 44,
+        "value": "τε",
+        "head_id": 47,
+        "relation": "AuxY"
+      },
+      {
+        "id": 45,
+        "value": "ἄναξ",
+        "head_id": 43,
+        "relation": "ATR"
+      },
+      {
+        "id": 46,
+        "value": "ἀνδρῶν",
+        "head_id": 45,
+        "relation": "ATR"
+      },
+      {
+        "id": 47,
+        "value": "καὶ",
+        "head_id": 41,
+        "relation": "COORD"
+      },
+      {
+        "id": 48,
+        "value": "δῖος",
+        "head_id": 49,
+        "relation": "ATR"
+      },
+      {
+        "id": 49,
+        "value": "Ἀχιλλεύς",
+        "head_id": 47,
+        "relation": "SBJ_CO"
+      },
+      {
+        "id": 50,
+        "value": ".",
+        "head_id": 0,
+        "relation": "AuxK"
+      }
+    ],
+    "references": [
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.1",
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.2",
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.3",
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.4",
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.5",
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.6",
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.7"
+    ]
+  }
+]
