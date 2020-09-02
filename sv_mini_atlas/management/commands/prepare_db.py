@@ -7,11 +7,13 @@ from django.core.management.base import BaseCommand
 from contexttimer import Timer
 
 from scaife_viewer.atlas import importers, tokenizers
-from scaife_viewer.atlas.conf import settings
+# @@@ parallel ingestion
+# from scaife_viewer.atlas.conf import settings
 
 
 # @@@ better way to alias this from our conf module?
-WORKER_COUNT = settings.SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY
+# WORKER_COUNT = settings.SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY
+WORKER_COUNT = None
 
 
 class Command(BaseCommand):
@@ -37,7 +39,7 @@ class Command(BaseCommand):
         print(f"{t.elapsed}")
 
         async_stages_1 = [
-            ("Loading alignments", importers.alignments.import_alignments),
+            # ("Loading alignments", importers.alignments.import_alignments),
             (
                 "Loading text annotations",
                 importers.text_annotations.import_text_annotations,
@@ -83,3 +85,13 @@ class Command(BaseCommand):
                     print(f"--[{msg}]--")
                     executor.submit(stage)
         print(f"stage2 {t.elapsed}")
+
+        # @@@
+        importers.alignments.process_cex(
+            "data/annotations/text-alignments/raw/tlg0012.tlg001.word_alignment.cex"
+        )
+
+        importers.alignments.process_cex(
+            "data/annotations/text-alignments/raw/tlg0012.tlg001.sentence_alignment.cex"
+        )
+
