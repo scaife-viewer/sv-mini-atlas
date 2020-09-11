@@ -87,11 +87,4 @@ class Command(BaseCommand):
         print(f"stage2 {t.elapsed}")
 
         # @@@
-        importers.alignments.process_cex(
-            "data/annotations/text-alignments/raw/tlg0012.tlg001.word_alignment.cex"
-        )
-
-        importers.alignments.process_cex(
-            "data/annotations/text-alignments/raw/tlg0012.tlg001.sentence_alignment.cex"
-        )
-
+        importers.alignments.process_alignments(reset=True)
