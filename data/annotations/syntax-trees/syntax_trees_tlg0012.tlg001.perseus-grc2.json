@@ -312,7 +312,8 @@
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.5",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.6",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.7"
-    ]
+    ],
+    "citation": "1.1-1.7"
   },
   {
     "urn": "urn:cite2:exploreHomer:syntaxTree.v1:syntaxTree2274107",
@@ -375,7 +376,8 @@
     ],
     "references": [
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.8"
-    ]
+    ],
+    "citation": "1.8"
   },
   {
     "urn": "urn:cite2:exploreHomer:syntaxTree.v1:syntaxTree2274108",
@@ -420,7 +422,8 @@
     ],
     "references": [
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.9"
-    ]
+    ],
+    "citation": "1.9"
   },
   {
     "urn": "urn:cite2:exploreHomer:syntaxTree.v1:syntaxTree2274109",
@@ -554,11 +557,12 @@
       }
     ],
     "references": [
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.9",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.10",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.11",
-      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.12",
-      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.9"
-    ]
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.12"
+    ],
+    "citation": "1.9-1.12"
   },
   {
     "urn": "urn:cite2:exploreHomer:syntaxTree.v1:syntaxTree2274110",
@@ -799,7 +803,8 @@
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.14",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.15",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.16"
-    ]
+    ],
+    "citation": "1.12-1.16"
   },
   {
     "urn": "urn:cite2:exploreHomer:syntaxTree.v1:syntaxTree2274111",
@@ -948,7 +953,8 @@
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.17",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.18",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.19"
-    ]
+    ],
+    "citation": "1.17-1.19"
   },
   {
     "urn": "urn:cite2:exploreHomer:syntaxTree.v1:syntaxTree2274112",
@@ -1066,7 +1072,8 @@
     "references": [
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.20",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.21"
-    ]
+    ],
+    "citation": "1.20-1.21"
   },
   {
     "urn": "urn:cite2:exploreHomer:syntaxTree.v1:syntaxTree2274113",
@@ -1160,7 +1167,8 @@
     "references": [
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.22",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.23"
-    ]
+    ],
+    "citation": "1.22-1.23"
   },
   {
     "urn": "urn:cite2:exploreHomer:syntaxTree.v1:syntaxTree2274114",
@@ -1272,6 +1280,7 @@
     "references": [
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.24",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:1.25"
-    ]
+    ],
+    "citation": "1.24-1.25"
   }
 ]
