@@ -46,7 +46,6 @@ class Command(BaseCommand):
         stage_1 = {
             "name": "stage 1",
             "callbacks": [
-                ("Loading alignments", importers.alignments.import_alignments),
                 (
                     "Loading text annotations",
                     importers.text_annotations.import_text_annotations,
@@ -92,6 +91,7 @@ class Command(BaseCommand):
                     "Loading named entity annotations",
                     importers.named_entities.apply_named_entities,
                 ),
+                ("Loading alignments", importers.alignments.process_alignments),
             ],
         }
         self.do_stage(stage_2)
