@@ -1,4 +1,3 @@
-import concurrent.futures
 import os
 
 from django.core.management import call_command
@@ -7,10 +6,6 @@ from django.core.management.base import BaseCommand
 from contexttimer import Timer
 
 from scaife_viewer.atlas import importers, tokenizers
-from scaife_viewer.atlas.conf import settings
-
-
-WORKER_COUNT = settings.SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY
 
 
 class Command(BaseCommand):
@@ -20,29 +15,19 @@ class Command(BaseCommand):
 
     help = "Prepares the database"
 
-    def do_stage(self, stage):
-        exceptions = False
-        with Timer() as t:
-            fs = {}
-            with concurrent.futures.ProcessPoolExecutor(
-                max_workers=WORKER_COUNT
-            ) as executor:
-                for msg, callback in stage["callbacks"]:
-                    print(f"--[{msg}]--")
-                    fs[executor.submit(callback)] = msg
-            for f in concurrent.futures.as_completed(fs):
-                msg = fs[f]
-                try:
-                    f.result()
-                except Exception as exc:
-                    exceptions = True
-                    print("{} generated an exception: {}".format(msg, exc))
-        print(f"{stage['name']} {t.elapsed}")
+    def emit_log(self, func_name, elapsed):
+        self.stdout.write(f"Step completed: [func={func_name} elapsed={elapsed:.2f}]")
 
-        if exceptions:
-            raise AssertionError(
-                f"Exceptions were encountered in running {stage['name']}"
-            )
+    def do_step(self, label, callback):
+        with Timer() as t:
+            self.stdout.write(f"--[{label}]--")
+            callback()
+        self.emit_log(callback.__name__, t.elapsed)
+
+    def do_stage(self, stage):
+        # NOTE: Revisit running stage callbacks in parallel in the future
+        for label, callback in stage["callbacks"]:
+            self.do_step(label, callback)
 
     def handle(self, *args, **options):
         if os.path.exists("db.sqlite3"):
@@ -52,12 +37,9 @@ class Command(BaseCommand):
         with Timer() as t:
             self.stdout.write("--[Creating database]--")
             call_command("migrate")
-        print(t.elapsed)
+        self.emit_log("migrate", t.elapsed)
 
-        with Timer() as t:
-            self.stdout.write("--[Loading versions]--")
-            importers.versions.import_versions(reset=True)
-        print(f"{t.elapsed}")
+        self.do_step("Loading versions", importers.versions.import_versions)
 
         stage_1 = {
             "name": "stage 1",
@@ -83,10 +65,11 @@ class Command(BaseCommand):
         }
         self.do_stage(stage_1)
 
-        with Timer() as t:
-            self.stdout.write("--[Tokenizing versions/exemplars]--")
-            tokenizers.tokenize_all_text_parts(reset=True)
-        print(f"tokenizers ran {t.elapsed}")
+        # NOTE: Tokenizing should never be ran in parallel, because
+        # it is already parallel
+        self.do_step(
+            "Tokenizing versions/exemplars", tokenizers.tokenize_all_text_parts
+        )
 
         stage_2 = {
             "name": "stage 2",
