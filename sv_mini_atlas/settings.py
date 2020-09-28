@@ -196,10 +196,3 @@ ATLAS_CONFIG = dict(
 )
 
 NODE_ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-
-
-# @@@ we will hit some timeouts with SQLite if we don't override this during ingestion, which I realize now we totally could
-# maybe do here too
-SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY = int(
-    os.environ.get("SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY", 1)
-)
