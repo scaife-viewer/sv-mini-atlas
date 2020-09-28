@@ -1,5 +1,7 @@
+import multiprocessing
 import os
 
+from django.conf import settings
 from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
@@ -67,6 +69,14 @@ class Command(BaseCommand):
 
         # NOTE: Tokenizing should never be ran in parallel, because
         # it is already parallel
+
+        concurrency_value = (
+            settings.SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY
+            or multiprocessing.cpu_count()
+        )
+        self.stdout.write(
+            f"SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY: {concurrency_value}"
+        )
         self.do_step(
             "Tokenizing versions/exemplars", tokenizers.tokenize_all_text_parts
         )
