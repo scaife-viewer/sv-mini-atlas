@@ -32,6 +32,7 @@ class Command(BaseCommand):
             self.do_step(label, callback)
 
     def handle(self, *args, **options):
+        # TODO: Factor out in favor of scaife_viewer_atlas `prepare_atlas_db` command
         if os.path.exists("db.sqlite3"):
             os.remove("db.sqlite3")
             self.stdout.write("--[Removed existing database]--")
@@ -70,12 +71,9 @@ class Command(BaseCommand):
         # it is already parallel
 
         concurrency_value = (
-            settings.SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY
-            or multiprocessing.cpu_count()
+            settings.SV_ATLAS_INGESTION_CONCURRENCY or multiprocessing.cpu_count()
         )
-        self.stdout.write(
-            f"SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY: {concurrency_value}"
-        )
+        self.stdout.write(f"SV_ATLAS_INGESTION_CONCURRENCY: {concurrency_value}")
         self.do_step(
             "Tokenizing versions/exemplars", tokenizers.tokenize_all_text_parts
         )

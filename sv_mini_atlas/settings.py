@@ -188,17 +188,9 @@ GRAPHENE = {
     "RELAY_CONNECTION_MAX_LIMIT": None,
 }
 
-ATLAS_CONFIG = dict(
-    IN_MEMORY_PASSAGE_CHUNK_MAX=int(
-        os.environ.get("ATLAS_IN_MEMORY_PASSAGE_CHUNK_MAX", 2500)
-    ),
-    DATA_DIR=os.path.join(PROJECT_ROOT, "data"),
-)
 
-NODE_ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+SV_ATLAS_DB_LABEL = "default"  # NOTE: Ensures we pick up ATLAS pragma customizations on the default database
+SV_ATLAS_DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 
-
-if "SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY" in os.environ:
-    SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY = int(
-        os.environ["SCAIFE_VIEWER_ATLAS_INGESTION_CONCURRENCY"]
-    )
+if "SV_ATLAS_INGESTION_CONCURRENCY" in os.environ:
+    SV_ATLAS_INGESTION_CONCURRENCY = int(os.environ["SV_ATLAS_INGESTION_CONCURRENCY"])
