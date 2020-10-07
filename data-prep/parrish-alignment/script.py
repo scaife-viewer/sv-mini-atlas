@@ -81,6 +81,7 @@ with open("/Users/jwegner/Data/development/repos/scaife-viewer/sv-mini-atlas-fre
 json.dump(pairs, open("pairs.json", "w"), indent=2, ensure_ascii=False)
 
 for pair in pairs:
+    ref = f"1.{pair[0][0]}"[:-1]
     print(pair[0][0], end=" ")
     for fragment in pair:
         print(*fragment[1], end=" ")
