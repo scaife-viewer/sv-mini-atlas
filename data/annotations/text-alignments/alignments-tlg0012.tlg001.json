@@ -10,10 +10,20 @@
     ]
   },
   {
-    "urn": "urn:cite2:scaife-viewer:alignment.v1:iliad-sentence-alignment",
+    "urn": "urn:cite2:scaife-viewer:alignment.v1:iliad-sentence-alignmentv1",
     "label": "Iliad Sentence Alignment",
     "format": "ducat-cex",
     "filename": "tlg0012.tlg001.sentence_alignment.cex",
+    "versions": [
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:",
+      "urn:cts:greekLit:tlg0012.tlg001.perseus-eng3:"
+    ]
+  },
+  {
+    "urn": "urn:cite2:scaife-viewer:alignment.v1:iliad-sentence-alignmentv2",
+    "label": "Iliad Sentence Alignment (v2)",
+    "format": "ducat-cex",
+    "filename": "tlg0012.tlg001.sentence_alignmentv2.cex",
     "versions": [
       "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:",
       "urn:cts:greekLit:tlg0012.tlg001.perseus-eng3:"
