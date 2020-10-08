@@ -30,8 +30,8 @@
     ]
   },
   {
-    "urn": "urn:cite2:scaife-viewer:alignment.v1:iliad-sentence-alignment-parrish",
-    "label": "Iliad Sentence Alignment (Parrish)",
+    "urn": "urn:cite2:scaife-viewer:alignment.v1:iliad-word-alignment-parrish",
+    "label": "Iliad Word Alignment (Parrish)",
     "format": "ducat-cex",
     "filename": "tlg0012.tlg001.sentence_alignment-parrish.cex",
     "versions": [
