@@ -23,6 +23,7 @@ import json
 from lxml import etree
 
 SPLITTER = re.compile(r'(?P<inner>\[{1}[^\]]+\]{1})')
+MOVE_PUNCTUATION = True
 
 
 with open("/Users/jwegner/Data/development/repos/scaife-viewer/sv-mini-atlas-fresh/data/annotations/text-alignments/iliad-parish.xml") as f:
@@ -64,7 +65,15 @@ def extract_pairs(path):
             records = []
             for word in iterable:
                 if word.strip() not in found:
-                    english.append(word.strip())
+                    english_word = word.strip()
+                    if MOVE_PUNCTUATION and english_word and english_word[0] in punctuation:
+                        last_punc, english_word = english_word[0:1], english_word[1:]
+                        english_word = english_word.strip()
+                        try:
+                            records[-1][1][-1] = f"{records[-1][1][-1]}{last_punc}"
+                        except IndexError:
+                            pairs[-1][-1][1][-1] = f"{pairs[-1][-1][1][-1]}{last_punc}"
+                    english.append(english_word)
                     continue
                 else:
                     greek = word.split("[", maxsplit=1)[1].rsplit(":", maxsplit=1)[-1].strip("]").split()
