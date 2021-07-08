@@ -1,3 +1,4 @@
+import re
 import os
 
 
@@ -19,8 +20,10 @@ import os
 
 
 import json
-impor tre
 from lxml import etree
+
+SPLITTER = re.compile(r'(?P<inner>\[{1}[^\]]+\]{1})')
+
 
 with open("/Users/jwegner/Data/development/repos/scaife-viewer/sv-mini-atlas-fresh/data/annotations/text-alignments/iliad-parish.xml") as f:
     tree = etree.parse(f)
@@ -47,42 +50,100 @@ for pos, elem in enumerate(matches):
         break
     print(ref, *words)
 
-splitter = re.compile(r'(?P<inner>\[{1}[^\]]+\]{1})')
 
-pairs = []
-with open("/Users/jwegner/Data/development/repos/scaife-viewer/sv-mini-atlas-fresh/data/annotations/text-alignments/parish-align.txt") as f:
-    for line in f:
-        ref, content = line.split(" ", maxsplit=1)
+def extract_pairs(path):
+    pairs = []
+    with open(path) as f:
+        for line in f:
+            ref, content = line.split(" ", maxsplit=1)
 
-        found = splitter.findall(content)
-        iterable = splitter.split(content)
-        english = []
-        greek = None
-        records = []
-        for word in iterable:
-            if word.strip() not in found:
-                english.append(word.strip())
+            found = SPLITTER.findall(content)
+            iterable = SPLITTER.split(content)
+            english = []
+            greek = None
+            records = []
+            for word in iterable:
+                if word.strip() not in found:
+                    english.append(word.strip())
+                    continue
+                else:
+                    greek = word.split("[", maxsplit=1)[1].rsplit(":", maxsplit=1)[-1].strip("]").split()
+                    if next(iter(greek), "0") == "0":
+                        # we need to ingest this stuff
+                        greek = []
+                    records.append(
+                        (ref, english, greek)
+                    )
+                    if len(greek) > 1:
+                        print(line)
+                    # else could retain greek if need be
+                    # also need to check for unmapped english; equivalent of "0" for greek
+                    english = []
+            pairs.append(records)
+    return pairs
+
+# path = "/Users/jwegner/Data/development/repos/scaife-viewer/sv-mini-atlas-fresh/data/annotations/text-alignments/parish-align.txt"
+
+
+def extract_from_grc(input_path, output_path):
+    lines = []
+    with open(input_path) as f:
+        for line in f.readlines():
+            if not line[0:2] == "<s":
                 continue
-            else:
-                greek = word.split("[", maxsplit=1)[1].rsplit(":", maxsplit=1)[-1].strip("]").split()
-                if next(iter(greek), "0") == "0":
-                    # we need to ingest this stuff
-                    greek = []
-                records.append(
-                    (ref, english, greek)
-                )
-                if len(greek) > 1:
-                    print(line)
-                # else could retain greek if need be
-                # also need to check for unmapped english; equivalent of "0" for greek
-                english = []
-        pairs.append(records)
+            line = line.strip()
+            if line[-4:] != "</s>":
+                line = f"{line}</s>"
+            lines.append(line)
 
-json.dump(pairs, open("pairs.json", "w"), indent=2, ensure_ascii=False)
+    line_num = None
+    text = []
+    extracted_lines = []
+    for line in lines:
+        elem = etree.fromstring(line)
+        if elem.text and elem.text.strip():
+            text.append(elem.text.strip())
+        for desc in elem.iterdescendants():
+            if desc.tag == "lb":
+                if line_num:
+                    extracted = f'{line_num}. {" ".join(text)}'
+                    extracted_lines.append(extracted)
+                    # print(extracted)
+                    text = []
+                line_num = desc.attrib["n"]
+                print(line_num)
+
+            if desc.tag == "add":
+                content = " ".join(([s.strip() for s in desc.itertext()]))
+                text.append(f"{content}[0]")
+            elif desc.text and desc.text.strip():
+                text.append(desc.text.strip())
+
+            if desc.tail and desc.tail.strip():
+                text.append(desc.tail.strip())
+    if text:
+        extracted_lines.append(
+            f'{line_num}. {" ".join(text)}'
+        )
+
+    with open(output_path, "w") as f:
+        for line in extracted_lines:
+            f.write(f"{line}\n")
+
+
+input_path = "data-prep/parrish-alignment/iliad01.parrish.aligned.txt"
+output_path = "data-prep/parrish-alignment/parish-align.txt"
+
+extract_from_grc(input_path, output_path)
+
+pairs = extract_pairs(output_path)
+
+pairs_path = "data-prep/parrish-alignment/pairs.json"
+json.dump(pairs, open(pairs_path, "w"), indent=2, ensure_ascii=False)
 
 for pair in pairs:
     ref = f"1.{pair[0][0]}"[:-1]
-    print(pair[0][0], end=" ")
+    print(ref, end=" ")
     for fragment in pair:
         print(*fragment[1], end=" ")
     print()
